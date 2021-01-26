@@ -5,3 +5,5 @@ const auth = require('../authentication/auth');
 router.get('/', auth.verifyToken , orderModel.getOrders);
 router.get('/:id/orders', auth.verifyToken ,orderModel.getOrderbyUserId);
 router.post('/new', auth.verifyToken, orderModel.createOrder);
+
+module.exports = router;
