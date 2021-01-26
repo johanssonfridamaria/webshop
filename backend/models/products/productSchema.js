@@ -1,7 +1,9 @@
 const mongodb = require('mongoose');
+const ObjectId = mongodb.Schema.Types.ObjectId;
 
 const productSchema = mongodb.Schema({
 
+    _id:            ObjectId,
     name:           { type: String, required: true, unique: true },
     brand:          { type: String, required: true },
     short:          { type: String, required: true },

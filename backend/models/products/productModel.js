@@ -35,6 +35,7 @@ exports.createProduct = (req, res) => {
         }
 
         const product = new Product({
+            _id: new mongodb.Types.ObjectId,
             name: req.body.name,
             brand: req.body.brand,
             short: req.body.short,
