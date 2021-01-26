@@ -1,4 +1,4 @@
-const mongodb = require('mongooose');
+const mongodb = require('mongoose');
 const Order = require('./orderSchema');
 
 //get all orders
