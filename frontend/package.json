@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "description": "webshop app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,6 +23,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johanssonfridamaria/webshop.git"
+  },
+  "author": "Frida Johansson",
+  "homepage": "",
   "eslintConfig": {
     "extends": [
       "react-app",
