@@ -5,6 +5,5 @@ const adminModel = require('../models/admin/adminModel');
 
 router.post('/register', adminModel.registerAdmin);
 router.post('/login', adminModel.loginAdmin);
-// router.get('/login', adminModel.loginAdmin);
 
 module.exports = router;
