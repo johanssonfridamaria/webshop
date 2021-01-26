@@ -40,7 +40,7 @@ exports.createProduct = (req, res) => {
             short: req.body.short,
             desc: req.body.desc,
             price: req.body.price,
-            image: req.body.image,
+            image: `${req.protocol}://${req.headers.host}/media/${req.file.originalname}`,
         })
         product.save()
         .then(() => {
