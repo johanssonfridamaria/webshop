@@ -1,8 +1,9 @@
 const mongodb = require('mongoose');
+const ObjectId = mongodb.Schema.Types.ObjectId;
 
 const userSchema= mongodb.Schema({
 
-    // _id: mongodb.Schema.Types.ObjectId,
+    _id: ObjectId,
     firstName:      {type:String, required: true},
     lastName:       {type:String, required: true},
     email:          {type:String, required: true, unique:true},
