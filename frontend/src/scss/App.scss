@@ -1,7 +1,4 @@
-$font-stack: Arial, Helvetica, sans-serif;
-$light-color: #f4f4f4;
-$primary-color: pink;
-$secondary-color: rgb(185, 82, 100);
+@import 'config';
 
 *{
   box-sizing: border-box;
@@ -13,4 +10,12 @@ body,html {
   background-color: $light-color;
   font-family: $font-stack;
   line-height: 1.6;
+  color: $primary-color;
 }
+
+
+
+a{
+  text-decoration: none;
+}
+
