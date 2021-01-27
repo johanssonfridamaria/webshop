@@ -1,4 +1,6 @@
 @import 'config';
+@import 'utilities';
+@import 'buttons';
 
 *{
   box-sizing: border-box;
@@ -7,15 +9,69 @@
 }
 
 body,html {
-  background-color: $light-color;
+  @include set-background($light-color);
   font-family: $font-stack;
   line-height: 1.6;
   color: $primary-color;
 }
 
-
-
-a{
+a {
   text-decoration: none;
+  color: set-text-color($light-color)
 }
 
+.navbar {
+  @include set-background($light-color);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li {
+    padding: 1rem;
+  }
+
+  a {
+    color: set-text-color($light-color)
+
+    &:hover{
+      color: #eee;
+    }
+  }
+  .link-active {
+    color: $secondary-color ;
+    border-bottom: 0.1rem solid $secondary-color;
+  }
+
+  .cart {
+    color: $secondary-color;
+    i {
+      cursor: pointer;
+    }
+    .quantity {
+      margin-left: 0.5rem;
+    }
+    }
+    .shopping-cart-side {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index:1;
+    top: 0;
+    right: 0;
+    background-color: $secondary-color;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 3.5rem;
+  }
+}
+
+
+@import 'mobile';
