@@ -1,7 +1,9 @@
 const actiontypes = () => {
   return {
     products: {
-      set: 'SET_PRODUCTS'
+      fetchInit: 'FETCH_INIT',
+      fetchSuccess: 'FETCH_SUCESS',
+      fetchFail: 'FETCH_FAIL'
     },
   }
 }
