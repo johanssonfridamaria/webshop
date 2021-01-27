@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const productModel = require('../models/products/productModel');
 const auth = require('../authentication/auth');
+const config = require('../config')
 
 const multer = require('multer');
 const storage = multer.diskStorage({
