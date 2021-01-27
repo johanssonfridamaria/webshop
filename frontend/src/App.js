@@ -1,4 +1,4 @@
-import './App.scss';
+import './scss/App.scss'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
 import Products from './views/Products';
