@@ -1,5 +1,7 @@
 // import express from node_modules
 const express = require('express');
+const path = require('path');
+
 
 // Synkronize with our app
 const app = express();
@@ -21,6 +23,7 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')))
 
 //controllers
 app.use('/api/admin', adminController);
