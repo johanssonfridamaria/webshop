@@ -1,0 +1,22 @@
+// inheritance
+%btn{
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid transparent;
+  background-color: transparent;
+  outline: transparent;
+
+  &:hover {
+    transform: scale(.98)
+  }
+}
+
+.btn-primary{
+  @extend %btn;
+  background-color: lighten($primary-color, 10%);
+}
+
+.btn-secondary{
+  @extend %btn;
+  background-color: $secondary-color;
+}
