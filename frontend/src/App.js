@@ -13,13 +13,14 @@ function App() {
     <BrowserRouter >
 
       <Navbar />
-
+      <div className="container">
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/products" component={Products}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/products/:id" component={ProductDetails}/>
       </Switch>
+      </div>
 
       <Footer />
     </BrowserRouter>
