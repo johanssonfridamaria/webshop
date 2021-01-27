@@ -21,18 +21,20 @@ const Products = () => {
 
   return (
     <div>
-      {/* {
-      products && products.map(product => (
-        <ProductCard product={product} key={product._id}/>
-      ))
-      } */}
-      {
-        loading
-          ? <p>Loading...</p>
-          : products && products.map(product => (
+      <div className="product-display">
+        <i class="fas fa-th-list"></i>
+        <i class="fas fa-th"></i>
+      </div>
+      <div className="product-wrapper">
+        {
+          loading && !products && <p>Loading...</p>
+        }
+        {
+          products && products.map(product => (
             <ProductCard product={product} key={product._id} />
           ))
-      }
+        }
+      </div>
     </div>
   )
 }
