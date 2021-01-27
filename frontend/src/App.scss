@@ -8,7 +8,7 @@ $primary-color: pink;
   padding: 0;
 }
 
-body{
+body,html {
   background-color: $light-color;
   font-family: $font-stack;
   line-height: 1.6;
