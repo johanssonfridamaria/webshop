@@ -1,5 +1,4 @@
 import actiontypes from '../actiontypes';
-import axios from '../../axios'
 
 const initState = {
   loading: false,
@@ -16,6 +15,7 @@ const productsReducer = (state = initState, action) => {
         loading: true
       }
     case actiontypes().products.fetchSuccess:
+      console.log(action.payload)
       return {
         products: action.payload,
         loading: false,
