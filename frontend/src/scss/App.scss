@@ -2,13 +2,14 @@
 @import 'utilities';
 @import 'buttons';
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body,html {
+body,
+html {
   @include set-background($light-color);
   font-family: $font-stack;
   line-height: 1.6;
@@ -17,8 +18,10 @@ body,html {
 
 a {
   text-decoration: none;
-  color: set-text-color($light-color)
+  color: set-text-color($light-color);
 }
+
+// Navbar
 
 .navbar {
   @include set-background($light-color);
@@ -39,14 +42,14 @@ a {
   }
 
   a {
-    color: set-text-color($light-color)
+    color: set-text-color($light-color);
 
-    &:hover{
+    &:hover {
       color: #eee;
     }
   }
   .link-active {
-    color: $secondary-color ;
+    color: $secondary-color;
     border-bottom: 0.1rem solid $secondary-color;
   }
 
@@ -58,20 +61,36 @@ a {
     .quantity {
       margin-left: 0.5rem;
     }
-    }
     .shopping-cart-side {
-    height: 100%;
-    width: 0px;
-    position: fixed;
-    z-index:1;
-    top: 0;
-    right: 0;
-    background-color: $secondary-color;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 3.5rem;
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: $secondary-color;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 3.5rem;
+    }
   }
 }
 
+.product-card {
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 0.1rem solid #eee;
+  // border-radius: 0.5rem;
+  padding: 1rem;
+  max-width: 10rem;
+  @include set-background(#fff);
+
+  &:hover {
+    transform: scale(0.98);
+  }
+
+  img {
+    width: 100%;
+  }
+}
 
 @import 'mobile';
