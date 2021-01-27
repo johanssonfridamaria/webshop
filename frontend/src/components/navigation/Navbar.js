@@ -1,23 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Navbar.scss';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
         <NavLink exact to="/" className="logo">WEBSHOP</NavLink>
-        <div>
-          <NavLink exact to="/" className="nav-link">Home</NavLink>
-          <NavLink exact to="/products" className="nav-link">Products</NavLink>
-        </div>
-        <div>
-          <NavLink exact to="/login" className="nav-link">Sign in</NavLink>
-          <span className="cart">
-            <i class="fas fa-shopping-bag"></i>
-            <p>(0)</p>
-          </span>
+        <ul>
+          <li><NavLink exact to="/" activeClassName="link-active">Home</NavLink></li>
+          <li><NavLink exact to="/products" activeClassName="link-active">Products</NavLink></li>
           {/* <NavLink exact to="/myorders">myorders</NavLink> */}
-        </div>
+        </ul>
+        <ul>
+          <li><NavLink exact to="/login" activeClassName="link-active">Sign in</NavLink></li>
+          <li><span className="cart">
+            <i className="fas fa-shopping-bag"></i>
+            <span className="quantity">(0)</span>
+          </span>
+          <div className="shopping-cart-side">
+            Cart component here
+          </div>
+          </li>
+        </ul>
       </div>
     </nav>
   )
