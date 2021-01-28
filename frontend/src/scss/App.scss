@@ -25,6 +25,11 @@ a {
   transition: margin-right 0.5s;
 }
 
+.view {
+  display: flex;
+  flex: 1 1 auto;
+}
+
 // Navbar
 
 .navbar {
@@ -78,11 +83,28 @@ a {
   background-color: $secondary-color;
   overflow-x: hidden;
   transition: 0.5s;
-  padding: 3.5rem 1rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  &__product {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 5rem;
+    }
+    &-price {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+    }
+  }
 
   &__inner {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
   }
 
   &__inner-bottom {
@@ -165,6 +187,7 @@ img {
 
 .product {
   display: flex;
+  align-items: center;
 
   &__details {
     margin-left: 2rem;
@@ -183,7 +206,8 @@ img {
   }
 
   img {
-    width: 20rem;
+    width: 30%;
+    height: 30%;
   }
 
   @media (max-width: 592px) {
