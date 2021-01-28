@@ -139,6 +139,36 @@ img {
   flex-grow: 1;
 }
 
+// Product details
+
+.product {
+  display: flex;
+
+  &__details {
+    margin-left: 2rem;
+
+    @media (max-width: 592px) {
+      margin-left: 0rem;
+    }
+  }
+
+  &__brand {
+    text-transform: uppercase;
+  }
+
+  &__price {
+    font-weight: bold;
+  }
+
+  img {
+    width: 20rem;
+  }
+
+  @media (max-width: 592px) {
+    flex-direction: column;
+  }
+}
+
 footer {
   @include set-background($secondary-color);
   color: $light-color;
