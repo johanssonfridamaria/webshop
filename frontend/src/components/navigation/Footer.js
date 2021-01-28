@@ -2,9 +2,12 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <footer className="py-2 mt-2">
+      <div className="container">
+        <p>Copyright © 2020 Frida Johansson</p>
+        <p>School project @Lexicon Yrkesutbildning</p>
+      </div>
+    </footer>
   )
 }
 
