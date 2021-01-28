@@ -13,7 +13,7 @@ html {
   @include set-background($light-color);
   font-family: $font-stack;
   line-height: 1.6;
-  color: $primary-color;
+  color: $secondary-color;
 }
 
 a {
