@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <div className="container">
-          <div className="my-2">
+          <div className="my-2 view">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/products" component={Products} />
