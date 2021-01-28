@@ -21,12 +21,20 @@ const productsReducer = (state = initState, action) => {
         loading: false,
         error: false
       }
-      case actiontypes().products.fetchFail:
-        return  {
-          ...state,
-          loading: false,
-          error: true
-        }
+    case actiontypes().products.fetchFail:
+      return {
+        ...state,
+        loading: false,
+        error: true
+      }
+    case actiontypes().products.fetchOneSuccess:
+      console.log(action.payload)
+      return {
+        product: action.payload,
+        loading: false,
+        error: false
+      }
+
     default:
       return state;
   }

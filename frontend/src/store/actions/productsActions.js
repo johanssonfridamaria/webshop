@@ -9,23 +9,40 @@ export const fetchInit = payload => {
 }
 
 export const fetchProducts = () => {
-  
+
   return async dispatch => {
     const res = await axios.get('/products');
-    console.log(res)
     if (res.status === 200) {
       dispatch(fetchSuccess(res.data))
     } else {
       dispatch(fetchFail())
-    } 
+    }
+  }
+}
+
+export const fetchOneProduct = id => {
+
+  return async dispatch => {
+    const res = await axios.get(`/products/${id}`);
+    console.log(res)
+    if (res.status === 200) {
+      dispatch(fetchOneSuccess(res.data))
+    } else {
+      dispatch(fetchFail())
+    }
   }
 }
 
 export const fetchSuccess = products => {
-  console.log(products)
   return {
     type: actiontypes().products.fetchSuccess,
     payload: products
+  }
+}
+export const fetchOneSuccess = product => {
+  return {
+    type: actiontypes().products.fetchOneSuccess,
+    payload: product
   }
 }
 

@@ -3,7 +3,8 @@ const actiontypes = () => {
     products: {
       fetchInit: 'FETCH_INIT',
       fetchSuccess: 'FETCH_SUCESS',
-      fetchFail: 'FETCH_FAIL'
+      fetchFail: 'FETCH_FAIL',
+      fetchOneSuccess: 'FETCH_ONE_SUCESS',
     },
   }
 }
