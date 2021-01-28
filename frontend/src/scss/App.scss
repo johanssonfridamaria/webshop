@@ -76,6 +76,13 @@ a {
   }
 }
 
+// Products
+
+.product-display {
+  display: flex;
+  justify-content: flex-end;
+}
+
 img {
   width: 100%;
   display: block;
@@ -130,6 +137,18 @@ img {
 
 .flexible {
   flex-grow: 1;
+}
+
+footer {
+  @include set-background($secondary-color);
+  color: $light-color;
+
+  p {
+    font-size: 0.8rem;
+  }
+  .container {
+    text-align: center;
+  }
 }
 
 @import 'mobile';
