@@ -10,22 +10,22 @@ import Footer from './components/navigation/Footer';
 
 function App() {
   return (
-    <BrowserRouter >
-
-      <Navbar />
-      <div className="container">
-        <div className="my-2">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/products" component={Products} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/products/:id" component={ProductDetails} />
-          </Switch>
+    <div id="app">
+      <BrowserRouter>
+        <Navbar />
+        <div className="container">
+          <div className="my-2">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/products/:id" component={ProductDetails} />
+            </Switch>
+          </div>
         </div>
-      </div>
-
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 
