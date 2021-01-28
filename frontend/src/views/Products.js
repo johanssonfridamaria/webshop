@@ -20,14 +20,12 @@ const Products = () => {
 
 
   return (
-    <div>
-      <div className="product-display d-flex ">
-        <div className="ml-auto">
-          <i className="fas fa-th-list ml-2"></i>
-          <i className="fas fa-th"></i>
-        </div>
+    <div className="mt-1">
+      <div className="product-display mx-3">
+        <i className="fas fa-th-list mr-1"></i>
+        <i className="fas fa-th"></i>
       </div>
-      <div className="card__wrap--outer">
+      <div className="card__wrap--outer mt-1">
         {
           loading && !products && <p>Loading...</p>
         }
