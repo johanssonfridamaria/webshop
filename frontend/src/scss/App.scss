@@ -76,12 +76,20 @@ a {
   }
 }
 
+.product-wrapper {
+  display: flex;
+}
+
+.grid {
+  flex-flow: row wrap;
+}
+
 .product-card {
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: 0.1rem solid #eee;
   // border-radius: 0.5rem;
   padding: 1rem;
-  max-width: 10rem;
+  max-width: 15rem;
   @include set-background(#fff);
 
   &:hover {
