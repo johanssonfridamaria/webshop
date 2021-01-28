@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="flexible py-1">
         </div>
-        <div>
+        <div className="price">
           <p>{product.price} SEK</p>
         </div>
         {/* <button className="btn-secondary">Add to cart</button> */}
