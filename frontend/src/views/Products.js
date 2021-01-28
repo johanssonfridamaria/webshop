@@ -20,7 +20,7 @@ const Products = () => {
 
 
   return (
-    <div className="mt-1">
+    <div>
       <div className="product-display mx-3">
         <i className="fas fa-th-list mr-1"></i>
         <i className="fas fa-th"></i>
