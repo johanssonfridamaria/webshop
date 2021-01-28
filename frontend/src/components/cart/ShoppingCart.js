@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CartProduct from './CartProduct';
 import { useSelector, useDispatch } from 'react-redux';
 import cartReducer from '../../store/reducers/cartReducer';
@@ -10,10 +10,14 @@ const ShoppingCart = () => {
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
 
   const empty = (
-    <div>
+    <div className="shopping-cart__product">
       Your cart is empty
     </div>
   )
+
+  useEffect(() => {
+    console.log(shoppingCart)
+  })
 
   return (
     <div className="shopping-cart__inner">
@@ -23,7 +27,7 @@ const ShoppingCart = () => {
         ))
       }
       {
-        !shoppingCart && empty
+        shoppingCart.length < 1 && empty
       }
 
       <div className="shopping-cart__inner-bottom">
