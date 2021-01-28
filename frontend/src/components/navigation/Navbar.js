@@ -10,7 +10,7 @@ const Navbar = () => {
     setisOpen(!isOpen);
 
     const move = document.querySelector('#app');
-    const nav = document.querySelector('.shopping-cart-side')
+    const nav = document.querySelector('.shopping-cart')
     console.log(move)
     if (isOpen) {
       nav.style.width = `${15}rem`
@@ -38,7 +38,7 @@ const Navbar = () => {
               <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
               <span className="quantity">(0)</span>
             </span>
-            <div className='shopping-cart-side'>
+            <div className='shopping-cart'>
               <ShoppingCart />
             </div>
           </li>
