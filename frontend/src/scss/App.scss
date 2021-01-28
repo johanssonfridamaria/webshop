@@ -45,7 +45,7 @@ a {
     color: set-text-color($light-color);
 
     &:hover {
-      color: #eee;
+      color: $secondary-color;
     }
   }
   .link-active {
