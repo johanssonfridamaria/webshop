@@ -1,29 +1,43 @@
-.container{
+.container {
   width: 80%;
   margin: 0 auto;
 }
 
+.d-flex {
+  display: flex;
+}
+
 //Margin & padding classes
-$spaceamounts: (1,2,3,4,5);
+$spaceamounts: (1, 2, 3, 4, 5);
 
 @each $space in $spaceamounts {
-  .m-#{space} {
-    margin: #{space}rem;
+  .m-#{$space} {
+    margin: #{$space}rem;
   }
-  .my-#{space} {
-    margin: 0 #{space}rem;
+  .mx-#{$space} {
+    margin: 0 #{$space}rem;
   }
-  .mx-#{space} {
-    margin: #{space}rem 0;
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  .mt-#{$space} {
+    margin-top: #{$space}rem;
+  }
+  .mb-#{$space} {
+    margin-bottom: #{$space}rem;
   }
 
-  .p-#{space} {
-    margin: #{space}rem;
+  .p-#{$space} {
+    margin: #{$space}rem;
   }
-  .py-#{space} {
-    margin: 0 #{space}rem;
+  .px-#{$space} {
+    margin: 0 #{$space}rem;
   }
-  .px-#{space} {
-    margin: #{space}rem 0;
+  .py-#{$space} {
+    margin: #{$space}rem 0;
   }
+}
+
+.ml-auto {
+  margin-left: auto;
 }
