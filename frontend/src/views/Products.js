@@ -25,7 +25,7 @@ const Products = () => {
         <i class="fas fa-th-list"></i>
         <i class="fas fa-th"></i>
       </div>
-      <div className="product-wrapper">
+      <div className="product-wrapper grid">
         {
           loading && !products && <p>Loading...</p>
         }
