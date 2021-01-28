@@ -26,15 +26,21 @@ $spaceamounts: (1, 2, 3, 4, 5);
   .mb-#{$space} {
     margin-bottom: #{$space}rem;
   }
+  .ml-#{$space} {
+    margin-left: #{$space}rem;
+  }
+  .mr-#{$space} {
+    margin-right: #{$space}rem;
+  }
 
   .p-#{$space} {
-    margin: #{$space}rem;
+    padding: #{$space}rem;
   }
   .px-#{$space} {
-    margin: 0 #{$space}rem;
+    padding: 0 #{$space}rem;
   }
   .py-#{$space} {
-    margin: #{$space}rem 0;
+    padding: #{$space}rem 0;
   }
 }
 
