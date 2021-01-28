@@ -21,6 +21,10 @@ a {
   color: set-text-color($light-color);
 }
 
+#app {
+  transition: margin-right 0.5s;
+}
+
 // Navbar
 
 .navbar {
@@ -61,19 +65,20 @@ a {
     .quantity {
       margin-left: 0.5rem;
     }
-    .shopping-cart-side {
-      height: 100%;
-      width: 0px;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: 0;
-      background-color: $secondary-color;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 3.5rem;
-    }
   }
+}
+
+.shopping-cart-side {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: $secondary-color;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 3.5rem;
 }
 
 // Products
