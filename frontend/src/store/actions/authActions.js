@@ -18,6 +18,10 @@ export const login = (email, password) => {
           return dispatch(loginFailed(false))
         }
       })
+      .catch(() => {
+
+        dispatch(loginFailed(false))
+      })
   }
 }
 
