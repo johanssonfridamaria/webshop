@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchInit, fetchOneProduct } from '../store/actions/productsActions';
-import productsReducer from '../store/reducers/productsReducer';
+import { addToCart } from '../store/actions/cartActions';
 
 const ProductDetails = () => {
 
@@ -33,7 +33,7 @@ const ProductDetails = () => {
               <p>{product.short}</p>
             </div>
             <p className="product__price mb-2">{product.price} SEK</p>
-            <button className="btn-secondary">Add to cart</button>
+            <button className="btn-secondary" onClick={() => { dispatch(addToCart(product)) }}>Add to cart</button>
           </div>
         </div>
       }
