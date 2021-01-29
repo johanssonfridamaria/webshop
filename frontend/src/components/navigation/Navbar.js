@@ -41,6 +41,7 @@ const Navbar = () => {
               <span className="quantity">({totalCartQuantity})</span>
             </span>
             <div className='shopping-cart'>
+              <i class="fas fa-times closebtn" onClick={toogleBag}></i>
               <ShoppingCart />
             </div>
           </li>
