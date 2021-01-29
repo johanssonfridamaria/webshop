@@ -53,7 +53,6 @@ exports.registerUser = (req, res) => {
 }
 
 exports.loginUser = (req, res) => {
-    console.log(req.body.email)
     User.findOne({ email: req.body.email })
         .then(user => {
             if (user === null) {
@@ -65,7 +64,7 @@ exports.loginUser = (req, res) => {
             }
 
             try {
-                bcrypt.compare(req.body.passwordHash, user.passwordHash, (err, result) => {
+                bcrypt.compare(req.body.password, user.passwordHash, (err, result) => {
                     if (result) {
                         return res.status(200).json({
                             statusCode: 200,
