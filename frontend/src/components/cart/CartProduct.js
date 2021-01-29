@@ -1,6 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart, deleteFromCart } from '../../store/actions/cartActions';
 
-const cartProduct = ({ item }) => {
+const CartProduct = ({ item }) => {
+
+  const dispatch = useDispatch();
+
   return (
     <div className="shopping-cart__product">
       <img src={item.image} alt={item.name} />
@@ -8,9 +13,9 @@ const cartProduct = ({ item }) => {
         <small><strong>{item.name}</strong></small>
         <small>{item.quantity} x {item.price} SEK</small>
         <div className="shopping-cart__buttons">
-          <button className="btn-round">+</button>
-          <button className="btn-round">-</button>
-          <button className="btn-round trash"><i class="far fa-trash-alt"></i></button>
+          <button className="btn-round" onClick={() => { dispatch(addToCart(item)) }}>+</button>
+          <button className="btn-round" onClick={() => { dispatch(removeFromCart(item)) }}>-</button>
+          <button className="btn-round trash" onClick={() => { dispatch(deleteFromCart(item._id)) }}><i className="far fa-trash-alt"></i></button>
         </div>
       </div>
 
@@ -19,4 +24,4 @@ const cartProduct = ({ item }) => {
   )
 }
 
-export default cartProduct
+export default CartProduct
