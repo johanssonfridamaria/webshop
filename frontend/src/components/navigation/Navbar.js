@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
 
-  const [isOpen, setisOpen] = useState('false')
+  let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
+
+  const [isOpen, setisOpen] = useState('false');
 
   const toogleBag = () => {
     setisOpen(!isOpen);
 
     const move = document.querySelector('#app');
     const nav = document.querySelector('.shopping-cart')
-    console.log(move)
     if (isOpen) {
       nav.style.width = `${15}rem`
       move.style.marginRight = `${15}rem`
@@ -36,7 +38,7 @@ const Navbar = () => {
           <li>
             <span className="cart">
               <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
-              <span className="quantity">(0)</span>
+              <span className="quantity">({totalCartQuantity})</span>
             </span>
             <div className='shopping-cart'>
               <ShoppingCart />
