@@ -11,6 +11,12 @@ const actiontypes = () => {
       remove: 'REMOVE_FROM_CART',
       delete: 'DELETE_FROM_CART',
       clear: 'CLEAR_CART'
+    },
+    auth: {
+      loginSuccess: 'LOGIN_SUCCESS',
+      loginFailed: 'LOGIN_FAILED',
+      logout: 'LOGOUT'
+
     }
   }
 }
