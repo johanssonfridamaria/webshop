@@ -30,7 +30,7 @@ const Navbar = () => {
         <NavLink exact to="/" className="logo">WEBSHOP</NavLink>
         <ul>
           <li><NavLink exact to="/" activeClassName="link-active">Home</NavLink></li>
-          <li><NavLink exact to="/products" activeClassName="link-active">Products</NavLink></li>
+          <li><NavLink exact to="/products" activeClassName="link-active">Shop</NavLink></li>
           {/* <NavLink exact to="/myorders">myorders</NavLink> */}
         </ul>
         <ul>
@@ -41,7 +41,7 @@ const Navbar = () => {
               <span className="quantity">({totalCartQuantity})</span>
             </span>
             <div className='shopping-cart'>
-              <i class="fas fa-times closebtn" onClick={toogleBag}></i>
+              <i className="fas fa-times closebtn" onClick={toogleBag}></i>
               <ShoppingCart />
             </div>
           </li>
