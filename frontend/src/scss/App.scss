@@ -230,6 +230,29 @@ img {
   }
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    padding: 0.2rem;
+    border: 0.1rem solid transparent;
+    border-bottom: 0.1rem solid #333;
+    @include set-background($light-color);
+    outline: none;
+  }
+}
+
 footer {
   @include set-background($secondary-color);
   color: $light-color;
