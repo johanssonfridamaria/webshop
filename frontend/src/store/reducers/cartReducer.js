@@ -69,7 +69,6 @@ const cartReducer = (state = initState, action) => {
       // let cart = jwt.decode(localStorage.getItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5'))
       let cart = JSON.parse(localStorage.getItem('cart'))
 
-      console.log(cart)
       if (cart)
         state = cart
 
