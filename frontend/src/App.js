@@ -1,6 +1,5 @@
 import './scss/App.scss'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './views/Home';
 import Products from './views/Products';
 import Login from './views/Login';
 import ProductDetails from './views/ProductDetails';
