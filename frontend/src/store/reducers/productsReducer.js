@@ -15,7 +15,6 @@ const productsReducer = (state = initState, action) => {
         loading: true
       }
     case actiontypes().products.fetchSuccess:
-      console.log(action.payload)
       return {
         products: action.payload,
         loading: false,
@@ -28,7 +27,6 @@ const productsReducer = (state = initState, action) => {
         error: true
       }
     case actiontypes().products.fetchOneSuccess:
-      console.log(action.payload)
       return {
         product: action.payload,
         loading: false,

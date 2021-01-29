@@ -24,7 +24,6 @@ export const fetchOneProduct = id => {
 
   return async dispatch => {
     const res = await axios.get(`/products/${id}`);
-    console.log(res)
     if (res.status === 200) {
       dispatch(fetchOneSuccess(res.data))
     } else {

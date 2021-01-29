@@ -5,6 +5,8 @@ import cartReducer from '../../store/reducers/cartReducer';
 
 const ShoppingCart = () => {
 
+  const dispatch = useDispatch();
+
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
@@ -14,10 +16,6 @@ const ShoppingCart = () => {
       Your cart is empty
     </div>
   )
-
-  useEffect(() => {
-    console.log(shoppingCart)
-  })
 
   return (
     <div className="shopping-cart__inner">
