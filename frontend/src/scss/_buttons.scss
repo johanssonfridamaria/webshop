@@ -1,5 +1,5 @@
 // inheritance
-%btn{
+%btn {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   border: 0.1rem solid transparent;
@@ -7,17 +7,32 @@
   outline: transparent;
 
   &:hover {
-    transform: scale(.98)
+    transform: scale(0.98);
   }
 }
 
-.btn-primary{
+.btn-round {
   @extend %btn;
-  // background-color: lighten($primary-color, 10%);
-  @include set-background( lighten($primary-color, 10%));
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  padding: 0;
+  margin-right: 0.3rem;
+  @include set-background(lighten($primary-color, 10%));
 }
 
-.btn-secondary{
+.trash {
+  font-size: 0.8rem;
+}
+
+.btn-primary {
+  @extend %btn;
+  // background-color: lighten($primary-color, 10%);
+  @include set-background(lighten($primary-color, 10%));
+}
+
+.btn-secondary {
   @extend %btn;
   // background-color: $secondary-color;
   @include set-background($secondary-color);
