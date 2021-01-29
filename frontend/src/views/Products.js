@@ -15,7 +15,6 @@ const Products = () => {
   useEffect(() => {
     dispatch(fetchInit())
     dispatch(fetchProducts());
-    console.log(products)
   }, [dispatch])
 
 
