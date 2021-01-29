@@ -33,7 +33,7 @@ const ShoppingCart = () => {
           <p>{totalCartQuantity} PCS</p>
           <p>Total: {totalCartAmount} SEK</p>
         </div>
-        <button className="btn-primary">Checkout</button>
+        <button className="btn-primary">Go to checkout</button>
       </div>
     </div>
   )
