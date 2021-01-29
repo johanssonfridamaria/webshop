@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="card__wrap--inner">
       <div className="card">
-        <Link to={`/products/${product._id}`}>
+        <Link to={`/${product._id}`}>
           <img src={product.image} alt={product.name} />
           <div className="mt-1">
             <h3>{product.name}</h3>
