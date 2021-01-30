@@ -16,7 +16,13 @@ const actiontypes = () => {
       loginSuccess: 'LOGIN_SUCCESS',
       loginFailed: 'LOGIN_FAILED',
       logout: 'LOGOUT'
-
+    },
+    orders: {
+      checkout: 'CHECKOUT',
+      viewOrders: 'VIEW_ORDERS',
+    },
+    user: {
+      register: 'REGISTER'
     }
   }
 }
