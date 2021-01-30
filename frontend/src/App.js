@@ -5,6 +5,8 @@ import Login from './views/Login';
 import ProductDetails from './views/ProductDetails';
 import Navbar from './components/navigation/Navbar';
 import Footer from './components/navigation/Footer';
+import Checkout from './views/Checkout';
+import MyOrders from './views/MyOrders';
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
               <Route exact path="/" component={Products} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/:id" component={ProductDetails} />
+              <Route exact path="/checkout" component={Checkout} />
+              <Route exact path="/orders/:id" component={MyOrders} />
             </Switch>
           </div>
         </div>
