@@ -2,6 +2,7 @@ import actiontypes from '../actiontypes';
 
 const initState = {
   isAuthenticated: false,
+  user: {},
   error: null,
 }
 
@@ -9,7 +10,8 @@ const authReducer = (state = initState, action) => {
   switch (action.type) {
     case actiontypes().auth.loginSuccess:
       return {
-        isAuthenticated: action.payload,
+        user: action.payload,
+        isAuthenticated: true,
         error: false
       }
 
