@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../store/actions/authActions';
 
 const Navbar = () => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
+  let isAuthenticated = useSelector(state => state.authReducer.isAuthenticated);
+  const dispatch = useDispatch();
 
   const [isOpen, setisOpen] = useState('false');
 
@@ -30,10 +33,17 @@ const Navbar = () => {
         <NavLink exact to="/" className="logo">WEBSHOP</NavLink>
         <ul>
           <li><NavLink exact to="/" activeClassName="link-active">Shop</NavLink></li>
-          {/* <NavLink exact to="/myorders">myorders</NavLink> */}
+          {
+            isAuth && <NavLink exact to="/myorders" activeClassName="link-active">My orders</NavLink>
+          }
         </ul>
         <ul>
-          <li><NavLink exact to="/login" activeClassName="link-active">Sign in</NavLink></li>
+          <li>
+            {
+              isAuth ? <p onClick={() => dispatch(logout())}>Sign out</p>
+                : <NavLink exact to="/login" activeClassName="link-active">Sign in</NavLink>
+            }
+          </li>
           <li>
             <span className="cart">
               <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
