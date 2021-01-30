@@ -13,7 +13,7 @@ export const login = (email, password) => {
 
         if (res.status === 200) {
           localStorage.setItem('token', res.data.token);
-          dispatch(loginSuccess(true))
+          dispatch(loginSuccess(res.data))
         } else {
           return dispatch(loginFailed(false))
         }
@@ -26,6 +26,7 @@ export const login = (email, password) => {
 }
 
 export const loginSuccess = (payload) => {
+  console.log(payload)
   return {
     type: actiontypes().auth.loginSuccess,
     payload
