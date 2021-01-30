@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import CartProduct from './CartProduct';
-import { useSelector, useDispatch } from 'react-redux';
-import cartReducer from '../../store/reducers/cartReducer';
+import { useSelector } from 'react-redux';
 
 const ShoppingCart = () => {
-
-  const dispatch = useDispatch();
 
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
@@ -33,7 +30,7 @@ const ShoppingCart = () => {
           <p>{totalCartQuantity} PCS</p>
           <p>Total: {totalCartAmount} SEK</p>
         </div>
-        <button className="btn-primary">Go to checkout</button>
+        <Link to="/checkout" className="btn-primary">Go to checkout</Link>
       </div>
     </div>
   )
