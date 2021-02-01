@@ -33,7 +33,7 @@ const LoginForm = () => {
       password.current.value = '';
       history.push('/')
     }
-  }, [])
+  }, [isAuthenticated, history])
 
 
   return (
