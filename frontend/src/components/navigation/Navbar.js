@@ -7,7 +7,9 @@ import { logout } from '../../store/actions/authActions';
 const Navbar = () => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
-  let isAuthenticated = useSelector(state => state.authReducer.isAuthenticated);
+  let isAuth = useSelector(state => state.authReducer.isAuthenticated);
+  // const userId = 
+
   const dispatch = useDispatch();
 
   const [isOpen, setisOpen] = useState('false');
@@ -34,13 +36,13 @@ const Navbar = () => {
         <ul>
           <li><NavLink exact to="/" activeClassName="link-active">Shop</NavLink></li>
           {
-            isAuth && <NavLink exact to="/myorders" activeClassName="link-active">My orders</NavLink>
+            isAuth && <li><NavLink exact to="/myorders" activeClassName="link-active">My orders</NavLink></li>
           }
         </ul>
         <ul>
           <li>
             {
-              isAuth ? <p onClick={() => dispatch(logout())}>Sign out</p>
+              isAuth ? <NavLink exact to="/" onClick={() => dispatch(logout())}>Sign out</NavLink>
                 : <NavLink exact to="/login" activeClassName="link-active">Sign in</NavLink>
             }
           </li>
