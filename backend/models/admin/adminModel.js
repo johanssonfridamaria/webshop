@@ -28,7 +28,7 @@ exports.registerAdmin = (req, res) => {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
-          passwordHash: hash
+          passwordHash: hash,
         })
 
         admin.save()
@@ -62,13 +62,19 @@ exports.loginAdmin = (req, res) => {
       }
 
       try {
-        bcrypt.compare(req.body.passwordHash, admin.passwordHash, ( result) => {
+        bcrypt.compare(req.body.password, admin.passwordHash, (result) => {
           if (result) {
+            let _admin = {
+              id: admin._id,
+              role: admin.role
+            }
+
+
             return res.status(200).json({
               statusCode: 200,
               status: true,
               message: 'Authentication was successful',
-              token: auth.generateToken(admin._id)
+              token: auth.generateToken(_admin)
             })
           }
           return res.status(401).json({
