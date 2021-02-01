@@ -17,6 +17,7 @@ exports.getOrders = (req, res) => {
 exports.getOrderbyUserId = (req, res) => {
   Order.find({ 'user': req.params.id })
     .then(data => {
+      console.log(data)
       return res.status(200).json(data)
     })
     .catch(err => res.status(500).json({
@@ -31,8 +32,10 @@ exports.createOrder = (req, res) => {
 
   const order = new Order({
     _id: new mongodb.Types.ObjectId,
-    user: req.body.user,
-    cart: req.body.cart
+    userId: req.body.userId,
+    cart: req.body.cart,
+    quantity: req.body.totalQuantity,
+    sum: req.body.totalAmount,
   })
   order.save()
     .then(() => {
