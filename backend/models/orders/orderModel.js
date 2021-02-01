@@ -34,8 +34,8 @@ exports.createOrder = (req, res) => {
     _id: new mongodb.Types.ObjectId,
     userId: req.body.userId,
     cart: req.body.cart,
-    quantity: req.body.totalQuantity,
-    sum: req.body.totalAmount,
+    quantity: req.body.quantity,
+    sum: req.body.sum,
   })
   order.save()
     .then(() => {
