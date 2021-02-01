@@ -30,7 +30,7 @@ exports.registerUser = (req, res) => {
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     email: req.body.email,
-                    passwordHash: hash
+                    passwordHash: hash,
                 })
 
                 user.save()
@@ -66,11 +66,16 @@ exports.loginUser = (req, res) => {
             try {
                 bcrypt.compare(req.body.password, user.passwordHash, (err, result) => {
                     if (result) {
+                        let _user = {
+                            id: user._id,
+                            firstName: user.firstName,
+                            role: user.role
+                        }
                         return res.status(200).json({
                             statusCode: 200,
                             status: true,
                             message: 'Authentication was successful',
-                            token: auth.generateToken(user._id)
+                            token: auth.generateToken(_user)
                         })
                     }
 
