@@ -13,6 +13,7 @@ export const login = (email, password) => {
 
         if (res.status === 200) {
           localStorage.setItem('token', res.data.token);
+          console.log(res.data)
           dispatch(loginSuccess(res.data))
         } else {
           return dispatch(loginFailed(false))
