@@ -17,12 +17,12 @@ export const login = (email, password, callback) => {
           dispatch(loginSuccess(res.data.token))
           callback();
         } else {
-          return dispatch(loginFailed(false))
+          return dispatch(loginFailed(true))
         }
       })
       .catch(() => {
 
-        dispatch(loginFailed(false))
+        dispatch(loginFailed(true))
       })
   }
 }
@@ -35,24 +35,54 @@ export const loginSuccess = token => {
   }
 }
 
-export const loginFailed = (payload) => {
+export const loginFailed = error => {
   return {
     type: actiontypes().user.loginFailed,
-    payload
+    payload: error
   }
 }
 
-export const logout = payload => {
+export const logout = () => {
   localStorage.removeItem('token');
-  console.log('payload', payload)
   return {
     type: actiontypes().user.logout,
-    payload
   }
 }
 
-export const registerUser = () => {
-  return {
+export const registerUser = (user, callback) => {
+  return async dispatch => {
+    await axios.post('/users/register', user)
+      .then(res => {
+        console.log(res);
 
+        if (res.status === 200) {
+          dispatch(login(user.email, user.password, callback))
+        }
+
+        else if (res.status === 400) {
+          dispatch(userExists(true))
+        }
+        else {
+          dispatch(registerFailed(true))
+        }
+      })
+      .catch(() => {
+        dispatch(registerFailed(true))
+      })
+  }
+
+}
+
+export const userExists = error => {
+  return {
+    type: actiontypes().user.userExists,
+    payload: error
+  }
+}
+
+export const registerFailed = error => {
+  return {
+    type: actiontypes().user.registerFailed,
+    payload: error
   }
 }
