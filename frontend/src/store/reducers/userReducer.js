@@ -13,7 +13,6 @@ const initState = {
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case actiontypes().user.loginSuccess:
-      console.log(action.payload)
       state.userId = jwt.decode(action.payload).user.id;
       state.userFirstName = jwt.decode(action.payload).user.firstName;
       state.userLastName = jwt.decode(action.payload).user.lastName;

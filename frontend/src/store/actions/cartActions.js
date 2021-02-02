@@ -31,7 +31,6 @@ export const clearCart = () => {
 export const checkoutCart = order => {
   return async (dispatch, getState) => {
     let id = getState().userReducer.userId;
-    console.log(id)
     if (order.shoppingCart.length > 0) {
       let _order = {
         userId: id,
@@ -44,11 +43,9 @@ export const checkoutCart = order => {
         .then(res => {
           if (res.status === 201) {
             dispatch(clearCart());
-            console.log('success')
           }
         })
         .catch(err => {
-          console.log(err)
         })
     }
   }

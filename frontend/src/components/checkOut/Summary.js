@@ -22,7 +22,6 @@ const Summary = () => {
 
     if (isLoggedIn) {
       dispatch(checkoutCart(order))
-      console.log('hej')
     } else {
       error = true
     }

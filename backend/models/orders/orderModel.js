@@ -15,10 +15,8 @@ exports.getOrders = (req, res) => {
 
 //get order with a specific user id
 exports.getOrderbyUserId = (req, res) => {
-  console.log(req.params.id)
   Order.find({ userId: req.params.id })
     .then(data => {
-      console.log(data)
       return res.status(200).json(data)
     })
     .catch(err => res.status(500).json({

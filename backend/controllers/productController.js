@@ -5,16 +5,15 @@ const config = require('../config')
 
 const multer = require('multer');
 const storage = multer.diskStorage({
-  destination: function(req,file,cb){
-    cb(null, config.PROJECT_DIR+'/public/media') // here we specify the destination . in this case I specified the current directory
+  destination: function (req, file, cb) {
+    cb(null, config.PROJECT_DIR + '/public/media') // here we specify the destination . in this case I specified the current directory
   },
-  filename: function(req, file, cb){
-    console.log(file);
+  filename: function (req, file, cb) {
     cb(null, file.originalname) // here we specify the file saving name . in this case I specified the original file name
   }
 })
 
-const upload = multer({storage: storage})
+const upload = multer({ storage: storage })
 
 
 router.get('/', productModel.getProducts);

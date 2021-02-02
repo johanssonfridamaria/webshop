@@ -14,7 +14,6 @@ const LoginForm = () => {
   const password = useRef();
 
   const onSub = e => {
-    console.log(error)
     e.preventDefault();
     if (email.current.value !== '' && email.current.value !== '') {
       dispatch(login(email.current.value, password.current.value,
@@ -24,7 +23,6 @@ const LoginForm = () => {
           //   password.current.value = '';
           //   history.push('/')
           // }
-          console.log(history)
           try { history.push(history.location.state.from.pathname) }
           catch { history.push('/') }
         }

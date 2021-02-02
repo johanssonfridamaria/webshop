@@ -9,11 +9,9 @@ export const login = (email, password, callback) => {
     }
     await axios.post('/users/login', user)
       .then(res => {
-        console.log(res);
 
         if (res.status === 200) {
           localStorage.setItem('token', res.data.token);
-          console.log(res.data)
           dispatch(loginSuccess(res.data.token))
           callback();
         } else {
@@ -28,7 +26,6 @@ export const login = (email, password, callback) => {
 }
 
 export const loginSuccess = token => {
-  console.log(token)
   return {
     type: actiontypes().user.loginSuccess,
     payload: token
@@ -53,7 +50,6 @@ export const registerUser = (user, callback) => {
   return async dispatch => {
     await axios.post('/users/register', user)
       .then(res => {
-        console.log(res);
 
         if (res.status === 200) {
           dispatch(login(user.email, user.password, callback))
