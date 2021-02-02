@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../store/actions/authActions';
+import { logout } from '../../store/actions/userActions';
 
 const Navbar = () => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
-  let isAuth = useSelector(state => state.authReducer.isAuthenticated);
+  let isAuth = useSelector(state => state.userReducer.isAuthenticated);
   // const userId = 
 
   const dispatch = useDispatch();
