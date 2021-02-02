@@ -20,7 +20,10 @@ const actiontypes = () => {
       logout: 'LOGOUT',
     },
     orders: {
-      viewOrders: 'VIEW_ORDERS',
+      fetchInit: 'FETCH_INIT',
+      fetchSuccess: 'FETCH_SUCESS',
+      fetchFail: 'FETCH_FAIL',
+      fetchOneSuccess: 'FETCH_ONE_SUCESS',
     },
   }
 }
