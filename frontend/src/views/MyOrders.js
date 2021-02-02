@@ -7,11 +7,12 @@ import { fetchInit, fetchUserOrders } from '../store/actions/orderActions';
 const MyOrders = () => {
 
   const dispatch = useDispatch();
+  const userId = useSelector(state => state.userReducer.userId)
   const loading = useSelector(state => state.orderReducer.loading);
   const orders = useSelector(state => state.orderReducer.orders);
-  const userId = useSelector(state => state.userReducer.userId)
 
   useEffect(() => {
+    console.log(loading, orders, userId)
     dispatch(fetchInit())
     dispatch(fetchUserOrders(userId));
   }, [dispatch, userId])
@@ -23,7 +24,7 @@ const MyOrders = () => {
         loading && !orders && <p>Loading...</p>
       }
       {
-        orders && orders.map(product => (
+        orders && orders.map(order => (
           <CartProduct item={product} key={product._id} />
         ))
       }
