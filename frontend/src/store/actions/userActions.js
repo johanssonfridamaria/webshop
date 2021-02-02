@@ -1,7 +1,7 @@
 import actiontypes from '../actiontypes';
 import axios from '../../axios';
 
-export const login = (email, password) => {
+export const login = (email, password, callback) => {
   return async dispatch => {
     const user = {
       email,
@@ -14,7 +14,8 @@ export const login = (email, password) => {
         if (res.status === 200) {
           localStorage.setItem('token', res.data.token);
           console.log(res.data)
-          dispatch(loginSuccess(res.data))
+          dispatch(loginSuccess(res.data.token))
+          callback();
         } else {
           return dispatch(loginFailed(false))
         }
@@ -26,24 +27,30 @@ export const login = (email, password) => {
   }
 }
 
-export const loginSuccess = (payload) => {
-  console.log(payload)
+export const loginSuccess = token => {
+  console.log(token)
   return {
-    type: actiontypes().auth.loginSuccess,
-    payload
+    type: actiontypes().user.loginSuccess,
+    payload: token
   }
 }
 
 export const loginFailed = (payload) => {
   return {
-    type: actiontypes().auth.loginFailed,
+    type: actiontypes().user.loginFailed,
     payload
   }
 }
 
 export const logout = () => {
   return {
-    type: actiontypes().auth.logout,
+    type: actiontypes().user.logout,
     payload: false
+  }
+}
+
+export const registerUser = () => {
+  return {
+
   }
 }
