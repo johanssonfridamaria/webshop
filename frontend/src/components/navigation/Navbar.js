@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const toogleBag = () => {
     isOpen = !isOpen
-    openCart(isOpen)
+    // openCart(isOpen)
 
     const move = document.querySelector('#app');
     const nav = document.querySelector('.shopping-cart')
@@ -56,7 +56,7 @@ const Navbar = () => {
             </span>
             <div className='shopping-cart'>
               <i className="fas fa-times closebtn" onClick={toogleBag}></i>
-              <ShoppingCart />
+              <ShoppingCart toggleBag={toogleBag} />
             </div>
           </li>
         </ul>
