@@ -16,7 +16,8 @@ const actiontypes = () => {
       loginSuccess: 'LOGIN_SUCCESS',
       loginFailed: 'LOGIN_FAILED',
       logout: 'LOGOUT',
-      register: 'REGISTER'
+      registerFailed: 'REGISTER_FAILED',
+      userExists: 'USER_EXISTS'
     },
     orders: {
       checkout: 'CHECKOUT',
