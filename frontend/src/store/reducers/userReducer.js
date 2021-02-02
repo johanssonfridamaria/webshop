@@ -19,13 +19,20 @@ const userReducer = (state = initState, action) => {
       return state
 
     case actiontypes().user.loginFailed:
-      state.error = true;
+      state.error = action.payload;
       return state
 
     case actiontypes().user.logout:
       state.token = null;
       return state
 
+    case actiontypes().user.userExists:
+      state.error = action.payload
+      return state
+
+    case actiontypes().user.registerFailed:
+      state.error = action.payload
+      return state
 
     default:
       return state
