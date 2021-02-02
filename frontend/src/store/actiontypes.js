@@ -10,7 +10,8 @@ const actiontypes = () => {
       add: 'ADD_TO_CART',
       remove: 'REMOVE_FROM_CART',
       delete: 'DELETE_FROM_CART',
-      clear: 'CLEAR_CART'
+      clear: 'CLEAR_CART',
+      openCart: 'OPEN_CART'
     },
     user: {
       loginSuccess: 'LOGIN_SUCCESS',
