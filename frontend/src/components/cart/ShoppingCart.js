@@ -9,7 +9,6 @@ const ShoppingCart = ({ toggleBag }) => {
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
-  let isOpen = useSelector(state => state.cartReducer.isOpen);
 
   const empty = (
     <div className="shopping-cart__product">
