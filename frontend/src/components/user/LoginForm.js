@@ -42,21 +42,17 @@ const LoginForm = () => {
 
 
   return (
-    <div>
-      <div className="mb-1">
-        <h1>Sign In</h1>
+    <form onSubmit={onSub}>
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="email">Email:</label>
+        <input type="email" id="email" ref={email} className="form__input" />
       </div>
-      <form onSubmit={onSub}>
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="email">Email:</label>
-          <input type="email" id="email" ref={email} className="form__input" />
-        </div>
 
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="password">Password:</label>
-          <input type="password" id="password" className="form__input" ref={password} />
-        </div>
-        {/* {!error && (
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="password">Password:</label>
+        <input type="password" id="password" className="form__input" ref={password} />
+      </div>
+      {/* {!error && (
           <div className="form__error"><small>Please fill in all fields!</small></div>
         )
         }
@@ -65,10 +61,9 @@ const LoginForm = () => {
             <div className="form__error"><small>Email or password is incorrect!</small></div>
           )
         } */}
-        <div className="mt-2"><small >Don't have an account? <Link to="/register">Register</Link> </small></div>
-        <button type="submit" className="btn-secondary mt-1">Sign in</button>
-      </form>
-    </div>
+      <div className="mt-2"><small >Don't have an account? <Link to="/register">Register</Link> </small></div>
+      <button type="submit" className="btn-secondary mt-1">Sign in</button>
+    </form>
   )
 }
 
