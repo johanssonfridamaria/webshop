@@ -11,21 +11,6 @@
   }
 }
 
-.btn-round {
-  @extend %btn;
-  border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 1rem;
-  padding: 0;
-  margin-right: 0.3rem;
-  @include set-background(lighten($primary-color, 10%));
-}
-
-.trash {
-  font-size: 0.8rem;
-}
-
 .btn-primary {
   @extend %btn;
   // background-color: lighten($primary-color, 10%);
@@ -36,4 +21,34 @@
   @extend %btn;
   // background-color: $secondary-color;
   @include set-background($secondary-color);
+}
+
+%btn-round {
+  border-radius: 50%;
+  border: 0.1rem solid transparent;
+  background-color: transparent;
+  outline: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  padding: 0;
+  margin-right: 0.3rem;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.btn-round-primary {
+  @extend %btn-round;
+  @include set-background(lighten($primary-color, 10%));
+}
+.btn-round-secondary {
+  @extend %btn-round;
+  // @include set-background(lighten($primary-color, 10%));
+  @include set-background($secondary-color);
+}
+
+.trash {
+  font-size: 0.8rem;
 }
