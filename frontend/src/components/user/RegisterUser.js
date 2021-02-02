@@ -69,7 +69,7 @@ const RegisterUser = () => {
             <div className="form__error"><small>User already exists</small></div>
           )
         } */}
-      <div className="mt-2"><small >Already have an account? <Link to="/login">Login</Link> </small></div>
+      <div className="mt-2"><small >Already have an account? <Link to="/login">Sign in</Link> </small></div>
       <button type="submit" className="btn-secondary mt-1">Register</button>
     </form>
   )
