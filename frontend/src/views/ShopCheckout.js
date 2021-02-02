@@ -7,12 +7,8 @@ import CartProduct from '../components/cart/CartProduct';
 
 
 const ShopCheckout = () => {
-  const isLoggedIn = useSelector(state => state.userReducer.token);
 
-  const history = useHistory();
   const shoppingCart = useSelector(state => state.cartReducer.cart);
-  const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
-  const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
 
   const empty = (
     <div className="shopping-cart__product">
@@ -22,9 +18,9 @@ const ShopCheckout = () => {
 
   return (
     <div className="checkout">
-      <div className="">
+      <div className="checkout__bag">
         <div className="mb-2">
-          <h2>Shoppingbag</h2>
+          <h2>Shopping bag</h2>
         </div>
         {
           shoppingCart && shoppingCart.map(product => (
@@ -35,22 +31,12 @@ const ShopCheckout = () => {
           shoppingCart.length < 1 && empty
         }
       </div>
-      <div>
+      <div className="checkout__summary ml-4">
         <div className="mb-2">
           <h2>Order Summary</h2>
         </div>
-
         <Summary />
       </div>
-      {/* {
-        !isLoggedIn &&
-      } */}
-      {
-        isLoggedIn && (
-          <CustomerInfo />
-        )
-      }
-
     </div>
   )
 }
