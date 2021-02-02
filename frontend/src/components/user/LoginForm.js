@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../store/actions/authActions';
+import { login } from '../../store/actions/userActions';
 
 const LoginForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  let error = useSelector(state => state.authReducer.error);
-  let isAuthenticated = useSelector(state => state.authReducer.isAuthenticated)
+  let error = useSelector(state => state.userReducer.error);
+  let isAuthenticated = useSelector(state => state.userReducer.isAuthenticated)
 
   const email = useRef();
   const password = useRef();
@@ -16,18 +16,21 @@ const LoginForm = () => {
   const onSub = e => {
     console.log(error)
     e.preventDefault();
-    dispatch(login(email.current.value, password.current.value));
-    // console.log(error)
-    // if (error) {
-    //   email.current.value = '';
-    //   password.current.value = '';
-    //   history.push('/')
-    // }
-  }
+    if (email.current.value !== '' && email.current.value !== '') {
+      dispatch(login(email.current.value, password.current.value,
+        //   () => {
+        //   if (isAuthenticated) {
+        //     email.current.value = '';
+        //     password.current.value = '';
+        //     history.push('/')
+        //   }
+        // }
+      ));
+    } else
+      return error = true;
+  };
 
   useEffect(() => {
-
-    console.log('effect', isAuthenticated)
     if (isAuthenticated) {
       email.current.value = '';
       password.current.value = '';
@@ -52,6 +55,9 @@ const LoginForm = () => {
           <input type="password" id="password" className="form__input" ref={password} />
         </div>
         {error &&
+          <div className="form__error"><small>Please fill in all fields!</small></div>
+        }
+        {!isAuthenticated &&
           <div className="form__error"><small>Email or password is incorrect!</small></div>
         }
         <button type="submit" className="btn-secondary mt-3">Sign in</button>
