@@ -5,7 +5,9 @@ const initState = {
   userId: null,
   error: false,
   token: null,
-  userFirstName: null
+  userFirstName: null,
+  userLastName: null,
+  userEmail: null,
 }
 
 const userReducer = (state = initState, action) => {
@@ -14,6 +16,8 @@ const userReducer = (state = initState, action) => {
       console.log(action.payload)
       state.userId = jwt.decode(action.payload).user.id;
       state.userFirstName = jwt.decode(action.payload).user.firstName;
+      state.userLastName = jwt.decode(action.payload).user.lastName;
+      state.userEmail = jwt.decode(action.payload).user.email;
       state.token = action.payload;
       state.error = false;
       return state
