@@ -21,9 +21,9 @@ export const deleteFromCart = id => {
   }
 }
 
-export const openCart = isOpen => {
-  return {
-    type: actiontypes().cart.openCart,
-    payload: isOpen
-  }
-}
+// export const openCart = isOpen => {
+//   return {
+//     type: actiontypes().cart.openCart,
+//     payload: isOpen
+//   }
+// }

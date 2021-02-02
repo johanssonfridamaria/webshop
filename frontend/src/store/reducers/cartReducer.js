@@ -66,9 +66,9 @@ const cartReducer = (state = initState, action) => {
 
       return state
 
-    case actiontypes().cart.openCart:
-      state.isOpen = action.payload
-      return state
+    // case actiontypes().cart.openCart:
+    //   state.isOpen = !action.payload
+    //   return state
 
     default:
       // let cart = jwt.decode(localStorage.getItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5'))
