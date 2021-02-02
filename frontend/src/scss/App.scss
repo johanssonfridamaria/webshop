@@ -57,9 +57,20 @@ a {
       color: $secondary-color;
     }
   }
-  .link-active {
-    color: $secondary-color;
-    border-bottom: 0.1rem solid $secondary-color;
+
+  .link {
+    &__active {
+      color: $secondary-color;
+      border-bottom: 0.1rem solid $secondary-color;
+    }
+
+    &__logout {
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
   }
 
   .cart {
