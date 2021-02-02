@@ -11,7 +11,8 @@ const actiontypes = () => {
       remove: 'REMOVE_FROM_CART',
       delete: 'DELETE_FROM_CART',
       clear: 'CLEAR_CART',
-      openCart: 'OPEN_CART'
+      openCart: 'OPEN_CART',
+      checkout: 'CHECKOUT',
     },
     user: {
       loginSuccess: 'LOGIN_SUCCESS',
@@ -19,7 +20,6 @@ const actiontypes = () => {
       logout: 'LOGOUT',
     },
     orders: {
-      checkout: 'CHECKOUT',
       viewOrders: 'VIEW_ORDERS',
     },
   }
