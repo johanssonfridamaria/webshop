@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
@@ -7,7 +7,7 @@ import { logout } from '../../store/actions/userActions';
 const Navbar = () => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
-  let isAuth = useSelector(state => state.userReducer.isAuthenticated);
+  let isAuth = useSelector(state => state.userReducer.token);
   // const userId = 
 
   const dispatch = useDispatch();
@@ -32,20 +32,22 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="container">
-        <NavLink exact to="/" className="logo">WEBSHOP</NavLink>
+        <Link to="/" className="logo">WEBSHOP</Link>
         <ul>
-          <li><NavLink exact to="/" activeClassName="link-active">Shop</NavLink></li>
+          <li><NavLink exact to="/" activeClassName="link__active">Shop</NavLink></li>
           {
-            isAuth && <li><NavLink exact to="/myorders" activeClassName="link-active">My orders</NavLink></li>
+            isAuth && (
+              <li><NavLink exact to="/orders" activeClassName="link__active">My orders</NavLink></li>
+            )
           }
         </ul>
         <ul>
-          <li>
-            {
-              isAuth ? <NavLink exact to="/" onClick={() => dispatch(logout())}>Sign out</NavLink>
-                : <NavLink exact to="/login" activeClassName="link-active">Sign in</NavLink>
-            }
-          </li>
+          {
+
+            isAuth ? <li><span className="link__logout" onClick={() => dispatch(logout())}>Sign out</span></li>
+              : <li><NavLink exact to="/login" activeClassName="link__active">Sign in</NavLink></li>
+
+          }
           <li>
             <span className="cart">
               <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
