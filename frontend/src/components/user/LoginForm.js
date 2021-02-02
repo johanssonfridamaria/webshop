@@ -8,7 +8,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   let error = useSelector(state => state.userReducer.error);
-  let isAuthenticated = useSelector(state => state.userReducer.isAuthenticated)
+  let token = useSelector(state => state.userReducer.token)
 
   const email = useRef();
   const password = useRef();
@@ -19,7 +19,7 @@ const LoginForm = () => {
     if (email.current.value !== '' && email.current.value !== '') {
       dispatch(login(email.current.value, password.current.value,
         //   () => {
-        //   if (isAuthenticated) {
+        //   if (token) {
         //     email.current.value = '';
         //     password.current.value = '';
         //     history.push('/')
@@ -31,12 +31,12 @@ const LoginForm = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (token) {
       email.current.value = '';
       password.current.value = '';
       history.push('/')
     }
-  }, [isAuthenticated, history])
+  }, [token, history])
 
 
   return (
@@ -57,7 +57,7 @@ const LoginForm = () => {
         {error &&
           <div className="form__error"><small>Please fill in all fields!</small></div>
         }
-        {!isAuthenticated &&
+        {!token &&
           <div className="form__error"><small>Email or password is incorrect!</small></div>
         }
         <button type="submit" className="btn-secondary mt-3">Sign in</button>
