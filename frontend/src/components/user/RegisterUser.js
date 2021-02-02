@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { registerUser } from '../../store/actions/userActions';
 
@@ -13,6 +13,8 @@ const RegisterUser = () => {
   const email = useRef();
   const password = useRef();
 
+  let error = useSelector(state => state.userReducer.error);
+
   const onSub = e => {
     e.preventDefault();
 
@@ -24,7 +26,7 @@ const RegisterUser = () => {
     }
 
     if (firstName !== '' && lastName !== '' && email !== '' && password !== 0) {
-      dispatch(register(user, () => {
+      dispatch(registerUser(user, () => {
         try { history.push(history.location.state.from.pathname) }
         catch { history.push('/') }
       }));
