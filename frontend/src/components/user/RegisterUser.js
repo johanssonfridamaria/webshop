@@ -23,12 +23,17 @@ const RegiserUser = () => {
       password = password.current.value,
     }
 
-    dispatch(register(user));
-    email.current.value = '';
-    password.current.value = '';
-    firstName.current.value = '';
-    lastName.current.value = '';
-    history.push('/login')
+    if (firstName !== '' && lastName !== '' && email !== '' && password !== 0) {
+      dispatch(register(user, () => {
+        try { history.push(history.location.state.from.pathname) }
+        catch { history.push('/') }
+      }));
+      email.current.value = '';
+      password.current.value = '';
+      firstName.current.value = '';
+      lastName.current.value = '';
+    } else
+      error = true;
   }
 
   return (
@@ -57,7 +62,12 @@ const RegiserUser = () => {
           <input type="password" id="password" className="form__input" ref={password} />
         </div>
 
-        <div className="form__error"><small>Please fill in all fields!</small></div>
+        {
+          error && (
+            <div className="form__error"><small>Please fill in all fields!</small></div>
+          )
+        }
+
 
         <button type="submit" className="btn-secondary mt-3">Register</button>
       </form>
