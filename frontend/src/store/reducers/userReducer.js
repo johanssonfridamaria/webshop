@@ -18,7 +18,7 @@ const userReducer = (state = initState, action) => {
       state.error = false;
       return state
 
-    case actiontypes().user.loginFailed:
+    case actiontypes().user.fail:
       state.error = action.payload;
       return state
 
@@ -26,13 +26,13 @@ const userReducer = (state = initState, action) => {
       state.token = null;
       return state
 
-    case actiontypes().user.userExists:
-      state.error = action.payload
-      return state
+    // case actiontypes().user.userExists:
+    //   state.error = action.payload
+    //   return state
 
-    case actiontypes().user.registerFailed:
-      state.error = action.payload
-      return state
+    // case actiontypes().user.registerFailed:
+    //   state.error = action.payload
+    //   return state
 
     default:
       return state

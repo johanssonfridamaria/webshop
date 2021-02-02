@@ -14,10 +14,8 @@ const actiontypes = () => {
     },
     user: {
       loginSuccess: 'LOGIN_SUCCESS',
-      loginFailed: 'LOGIN_FAILED',
+      fail: 'FAIL',
       logout: 'LOGOUT',
-      registerFailed: 'REGISTER_FAILED',
-      userExists: 'USER_EXISTS'
     },
     orders: {
       checkout: 'CHECKOUT',

@@ -17,12 +17,12 @@ export const login = (email, password, callback) => {
           dispatch(loginSuccess(res.data.token))
           callback();
         } else {
-          return dispatch(loginFailed(true))
+          return dispatch(fail(true))
         }
       })
       .catch(() => {
 
-        dispatch(loginFailed(true))
+        dispatch(fail(true))
       })
   }
 }
@@ -35,7 +35,7 @@ export const loginSuccess = token => {
   }
 }
 
-export const loginFailed = error => {
+export const fail = error => {
   return {
     type: actiontypes().user.loginFailed,
     payload: error
@@ -60,29 +60,29 @@ export const registerUser = (user, callback) => {
         }
 
         else if (res.status === 400) {
-          dispatch(userExists(true))
+          dispatch(fail(true))
         }
         else {
-          dispatch(registerFailed(true))
+          dispatch(fail(true))
         }
       })
       .catch(() => {
-        dispatch(registerFailed(true))
+        dispatch(fail(true))
       })
   }
 
 }
 
-export const userExists = error => {
-  return {
-    type: actiontypes().user.userExists,
-    payload: error
-  }
-}
+// export const userExists = error => {
+//   return {
+//     type: actiontypes().user.userExists,
+//     payload: error
+//   }
+// }
 
-export const registerFailed = error => {
-  return {
-    type: actiontypes().user.registerFailed,
-    payload: error
-  }
-}
+// export const registerFailed = error => {
+//   return {
+//     type: actiontypes().user.registerFailed,
+//     payload: error
+//   }
+// }
