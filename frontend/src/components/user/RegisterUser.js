@@ -66,7 +66,7 @@ const RegisterUser = () => {
         }
         {!error &&
           (
-            <div className="form__error"><small>Email or password is incorrect!</small></div>
+            <div className="form__error"><small>User already exists</small></div>
           )
         } */}
       <div className="mt-2"><small >Already have an account? <Link to="/login">Login</Link> </small></div>
