@@ -1,19 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CartProduct from './CartProduct';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ toggleBag }) => {
 
+  const history = useHistory();
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
+  let isOpen = useSelector(state => state.cartReducer.isOpen);
 
   const empty = (
     <div className="shopping-cart__product">
       Your cart is empty
     </div>
   )
+
+  const onCheckout = () => {
+    toggleBag()
+    history.push('/checkout')
+  }
 
   return (
     <div className="shopping-cart__inner">
@@ -31,7 +38,7 @@ const ShoppingCart = () => {
           <p>{totalCartQuantity} PCS</p>
           <p>Total: {totalCartAmount} SEK</p>
         </div>
-        <Link to="/checkout" className="btn-primary">Go to checkout</Link>
+        <button className="btn-primary" onClick={onCheckout}>Go to checkout</button>
       </div>
     </div>
   )
