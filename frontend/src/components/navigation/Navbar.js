@@ -3,19 +3,20 @@ import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
+import { openCart } from '../../store/actions/cartActions';
 
 const Navbar = () => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
   let isAuth = useSelector(state => state.userReducer.token);
-  // const userId = 
+  let isOpen = useSelector(state => state.cartReducer.isOpen);
 
   const dispatch = useDispatch();
 
-  const [isOpen, setisOpen] = useState('false');
 
   const toogleBag = () => {
-    setisOpen(!isOpen);
+    isOpen = !isOpen
+    openCart(isOpen)
 
     const move = document.querySelector('#app');
     const nav = document.querySelector('.shopping-cart')
