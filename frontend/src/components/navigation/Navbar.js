@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
-import { openCart } from '../../store/actions/cartActions';
 
 const Navbar = () => {
 
