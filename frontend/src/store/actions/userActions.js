@@ -42,10 +42,12 @@ export const loginFailed = (payload) => {
   }
 }
 
-export const logout = () => {
+export const logout = payload => {
+  localStorage.removeItem('token');
+  console.log('payload', payload)
   return {
     type: actiontypes().user.logout,
-    payload: false
+    payload
   }
 }
 
