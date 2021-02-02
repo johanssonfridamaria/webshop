@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory, Link } from 'react-router-dom';
 import { registerUser } from '../../store/actions/userActions';
-import { useHistory } from 'react-router-dom';
 
-const RegiserUser = () => {
+const RegisterUser = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -17,10 +17,10 @@ const RegiserUser = () => {
     e.preventDefault();
 
     const user = {
-      firstName = firstName.current.value,
-      lastName = lastName.current.value,
-      email = email.current.value,
-      password = password.current.value,
+      firstName: firstName.current.value,
+      lastName: lastName.current.value,
+      email: email.current.value,
+      password: password.current.value,
     }
 
     if (firstName !== '' && lastName !== '' && email !== '' && password !== 0) {
@@ -37,43 +37,41 @@ const RegiserUser = () => {
   }
 
   return (
-    <div>
-      <div className="mb-1">
-        <h1>Register</h1>
+    <form onSubmit={onSub}>
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="firstName">First name:</label>
+        <input type="text" id="firstName" ref={firstName} className="form__input" />
       </div>
-      <form onSubmit={onSub}>
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="firstName">First name:</label>
-          <input type="text" id="firstName" ref={firstName} className="form__input" />
-        </div>
 
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="lastName">Last name:</label>
-          <input type="text" id="lastName" ref={lastName} className="form__input" />
-        </div>
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="lastName">Last name:</label>
+        <input type="text" id="lastName" ref={lastName} className="form__input" />
+      </div>
 
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="email">Email:</label>
-          <input type="email" id="email" ref={email} className="form__input" />
-        </div>
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="email">Email:</label>
+        <input type="email" id="email" ref={email} className="form__input" />
+      </div>
 
-        <div className="form__group mb-1">
-          <label className="form__label" htmlFor="password">Password:</label>
-          <input type="password" id="password" className="form__input" ref={password} />
-        </div>
+      <div className="form__group mb-1">
+        <label className="form__label" htmlFor="password">Password:</label>
+        <input type="password" id="password" className="form__input" ref={password} />
+      </div>
 
-        {
-          error && (
-            <div className="form__error"><small>Please fill in all fields!</small></div>
-          )
+      {/* {!error && (
+          <div className="form__error"><small>Please fill in all fields!</small></div>
+        )
         }
-
-
-        <button type="submit" className="btn-secondary mt-3">Register</button>
-      </form>
-    </div>
+        {!error &&
+          (
+            <div className="form__error"><small>Email or password is incorrect!</small></div>
+          )
+        } */}
+      <div className="mt-2"><small >Already have an account? <Link to="/login">Login</Link> </small></div>
+      <button type="submit" className="btn-secondary mt-1">Register</button>
+    </form>
   )
 }
 
-export default RegiserUser
+export default RegisterUser
 
