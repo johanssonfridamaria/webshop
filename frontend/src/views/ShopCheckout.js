@@ -1,7 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom';
-import CustomerInfo from '../components/checkOut/CustomerInfo'
 import Summary from '../components/checkOut/Summary'
 import CartProduct from '../components/cart/CartProduct';
 
