@@ -14,7 +14,7 @@ const MyOrders = () => {
   useEffect(() => {
     dispatch(fetchInit())
     dispatch(fetchUserOrders(userId));
-  }, [dispatch])
+  }, [dispatch, userId])
 
 
   return (
