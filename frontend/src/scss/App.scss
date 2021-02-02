@@ -26,8 +26,7 @@ a {
 }
 
 .view {
-  display: flex;
-  flex: 1 1 auto;
+  min-height: calc(100vh - (57.6px + 40.9px + 64px + 64px));
 }
 
 // Navbar
