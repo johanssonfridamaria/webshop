@@ -21,12 +21,13 @@ const userReducer = (state = initState, action) => {
       return state
 
     case actiontypes().user.loginFailed:
-      state.isAuthenticated = action.payload;
+      state.isAuthenticated = false;
       state.error = true;
       return state
 
     case actiontypes().user.logout:
-      state.isAuthenticated = action.payload;
+      state.isAuthenticated = false;
+      state.token = null;
       return state
 
 
