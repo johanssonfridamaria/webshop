@@ -24,6 +24,7 @@ const LoginForm = () => {
           //   password.current.value = '';
           //   history.push('/')
           // }
+          console.log(history)
           try { history.push(history.location.state.from.pathname) }
           catch { history.push('/') }
         }
