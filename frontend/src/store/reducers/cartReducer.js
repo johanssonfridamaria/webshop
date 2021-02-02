@@ -6,10 +6,10 @@ import actiontypes from '../actiontypes';
 
 const initState = {
   cart: [],
-  // quantity: 1,
   totalCartQuantity: 0,
   totalCartAmount: 0,
-  isOpen: false
+  isOpen: false,
+  error: false,
 }
 
 const delFromCart = id => {
@@ -69,6 +69,17 @@ const cartReducer = (state = initState, action) => {
     // case actiontypes().cart.openCart:
     //   state.isOpen = !action.payload
     //   return state
+
+
+    case actiontypes().cart.clear:
+      state.shoppingCart = []
+      state.totalCartAmount = 0
+      state.totalCartQuantity = 0
+
+      // localStorage.removeItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5');
+
+      return state
+
 
     default:
       // let cart = jwt.decode(localStorage.getItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5'))
