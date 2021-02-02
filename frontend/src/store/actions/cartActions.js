@@ -20,3 +20,10 @@ export const deleteFromCart = id => {
     payload: id
   }
 }
+
+export const openCart = isOpen => {
+  return {
+    type: actiontypes().cart.openCart,
+    payload: isOpen
+  }
+}

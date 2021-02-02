@@ -1,14 +1,15 @@
 import actiontypes from '../actiontypes';
-import jwt from 'jsonwebtoken';
-require('dotenv').config({ path: '/backend' });
+// import jwt from 'jsonwebtoken';
+// require('dotenv').config({ path: '/backend' });
 
-const secretKey = process.env.SECRET_KEY;
+// const secretKey = process.env.SECRET_KEY;
 
 const initState = {
   cart: [],
   // quantity: 1,
   totalCartQuantity: 0,
-  totalCartAmount: 0
+  totalCartAmount: 0,
+  isOpen: false
 }
 
 const delFromCart = id => {
@@ -63,6 +64,10 @@ const cartReducer = (state = initState, action) => {
       // localStorage.setItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5', jwt.sign(state, secretKey))
       localStorage.setItem('cart', JSON.stringify(state))
 
+      return state
+
+    case actiontypes().cart.openCart:
+      state.isOpen = action.payload
       return state
 
     default:
