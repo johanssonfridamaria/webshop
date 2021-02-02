@@ -37,7 +37,7 @@ export const loginSuccess = token => {
 
 export const fail = error => {
   return {
-    type: actiontypes().user.loginFailed,
+    type: actiontypes().user.fail,
     payload: error
   }
 }
