@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/actions/userActions';
 
@@ -18,25 +18,27 @@ const LoginForm = () => {
     e.preventDefault();
     if (email.current.value !== '' && email.current.value !== '') {
       dispatch(login(email.current.value, password.current.value,
-        //   () => {
-        //   if (token) {
-        //     email.current.value = '';
-        //     password.current.value = '';
-        //     history.push('/')
-        //   }
-        // }
+        () => {
+          // if (token) {
+          //   email.current.value = '';
+          //   password.current.value = '';
+          //   history.push('/')
+          // }
+          try { history.push(history.location.state.from.pathname) }
+          catch { history.push('/') }
+        }
       ));
     } else
       return error = true;
   };
 
-  useEffect(() => {
-    if (token) {
-      email.current.value = '';
-      password.current.value = '';
-      history.push('/')
-    }
-  }, [token, history])
+  // useEffect(() => {
+  //   if (token) {
+  //     email.current.value = '';
+  //     password.current.value = '';
+  //     history.push('/')
+  //   }
+  // }, [token, history])
 
 
   return (
@@ -54,13 +56,17 @@ const LoginForm = () => {
           <label className="form__label" htmlFor="password">Password:</label>
           <input type="password" id="password" className="form__input" ref={password} />
         </div>
-        {error &&
+        {/* {!error && (
           <div className="form__error"><small>Please fill in all fields!</small></div>
+        )
         }
-        {!token &&
-          <div className="form__error"><small>Email or password is incorrect!</small></div>
-        }
-        <button type="submit" className="btn-secondary mt-3">Sign in</button>
+        {!error &&
+          (
+            <div className="form__error"><small>Email or password is incorrect!</small></div>
+          )
+        } */}
+        <div className="mt-2"><small >Don't have an account? <Link to="/register">Register</Link> </small></div>
+        <button type="submit" className="btn-secondary mt-1">Sign in</button>
       </form>
     </div>
   )
