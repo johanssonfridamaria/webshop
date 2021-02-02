@@ -266,6 +266,11 @@ img {
   }
 }
 
+.checkout {
+  display: flex;
+  justify-content: space-between;
+}
+
 footer {
   @include set-background($secondary-color);
   color: $light-color;
