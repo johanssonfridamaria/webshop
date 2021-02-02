@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const initState = {
   userId: null,
-  error: null,
+  error: false,
   token: null,
   userFirstName: null
 }
