@@ -9,28 +9,26 @@ const initState = {
   userFirstName: null
 }
 
-const authReducer = (state = initState, action) => {
+const userReducer = (state = initState, action) => {
   switch (action.type) {
-    case actiontypes().auth.loginSuccess:
+    case actiontypes().user.loginSuccess:
       console.log(action.payload)
-      state.userId = jwt.decode(action.payload).user.id
-      state.userFirstName = jwt.decode(action.payload).user.firstName
-      return {
-        token: action.payload,
-        isAuthenticated: true,
-        error: false
-      }
+      state.userId = jwt.decode(action.payload).user.id;
+      state.userFirstName = jwt.decode(action.payload).user.firstName;
+      state.token = action.payload;
+      state.isAuthenticated = true;
+      state.error = false;
+      return state
 
-    case actiontypes().auth.loginFailed:
-      return {
-        isAuthenticated: action.payload,
-        error: true
-      }
+    case actiontypes().user.loginFailed:
+      state.isAuthenticated = action.payload;
+      state.error = true;
+      return state
 
-    case actiontypes().auth.logout:
-      return {
-        isAuthenticated: action.payload,
-      }
+    case actiontypes().user.logout:
+      state.isAuthenticated = action.payload;
+      return state
+
 
     default:
       return state
@@ -38,4 +36,4 @@ const authReducer = (state = initState, action) => {
 
 }
 
-export default authReducer;
+export default userReducer;
