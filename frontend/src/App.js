@@ -7,7 +7,7 @@ import Navbar from './components/navigation/Navbar';
 import Footer from './components/navigation/Footer';
 import Checkout from './views/Checkout';
 import MyOrders from './views/MyOrders';
-
+import { UserRoute } from './routes/ProtectedRoute';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/:id" component={ProductDetails} />
               <Route exact path="/checkout" component={Checkout} />
-              <Route exact path="/orders/:id" component={MyOrders} />
+              <UserRoute exact path="/orders" component={MyOrders} />
             </Switch>
           </div>
         </div>
