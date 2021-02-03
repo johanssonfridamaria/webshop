@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Order = ({ order }) => {
+const OrderTableItem = ({ order }) => {
 
   const history = useHistory();
   let date = new Date(order.created);
@@ -17,4 +17,4 @@ const Order = ({ order }) => {
   )
 }
 
-export default Order
+export default OrderTableItem
