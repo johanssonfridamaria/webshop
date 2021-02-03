@@ -1,8 +1,4 @@
 import actiontypes from '../actiontypes';
-// import jwt from 'jsonwebtoken';
-// require('dotenv').config({ path: '/backend' });
-
-// const secretKey = process.env.SECRET_KEY;
 
 const initState = {
   cart: [],
@@ -12,10 +8,6 @@ const initState = {
   error: false,
 }
 
-const delFromCart = id => {
-  initState.cart = initState.cart.filter(item => item._id !== id);
-  return initState.cart;
-}
 
 const cartReducer = (state = initState, action) => {
   let itemIndex;
@@ -44,24 +36,23 @@ const cartReducer = (state = initState, action) => {
     case actiontypes().cart.remove:
 
       action.payload.quantity === 1
-        ? delFromCart(action.payload._id)
+        ? state.cart = state.cart.filter(item => item._id !== action.payload._id)
         : action.payload.quantity -= 1
 
       state.totalCartQuantity = getTotalQuantity(state.cart);
       state.totalCartAmount = getTotalAmount(state.cart);
 
-      // localStorage.setItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5', jwt.sign(state, secretKey))
       localStorage.setItem('cart', JSON.stringify(state))
 
       return state
 
     case actiontypes().cart.delete:
-      delFromCart(action.payload)
+      console.log(action.payload)
+      state.cart = state.cart.filter(item => item._id !== action.payload);
 
       state.totalCartQuantity = getTotalQuantity(state.cart);
       state.totalCartAmount = getTotalAmount(state.cart);
 
-      // localStorage.setItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5', jwt.sign(state, secretKey))
       localStorage.setItem('cart', JSON.stringify(state))
 
       return state
@@ -76,13 +67,9 @@ const cartReducer = (state = initState, action) => {
       state.totalCartAmount = 0
       state.totalCartQuantity = 0
 
-      // localStorage.removeItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5');
-
       return state
 
-
     default:
-      // let cart = jwt.decode(localStorage.getItem('JAYew4vrGpzQe4fVe2NFVbpaMWaKJEB5'))
       let cart = JSON.parse(localStorage.getItem('cart'))
 
       if (cart)
@@ -113,9 +100,6 @@ const getTotalAmount = cart => {
 
   return totalAmount;
 }
-
-
-
 
 
 export default cartReducer;
