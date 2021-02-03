@@ -47,7 +47,7 @@ export const checkoutCart = order => {
         })
         .catch(err => {
         })
-    }
+    } else return
   }
 }
 
