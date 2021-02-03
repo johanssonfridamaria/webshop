@@ -32,8 +32,6 @@ const OrderDetails = () => {
           order && <DetailsOrder order={order} />
         }
       </div>
-
-
       <div className="orderdetails__container">
         <div className="mb-1">
           <h2>Your Order</h2>
