@@ -16,7 +16,7 @@ const MyOrders = () => {
   }, [dispatch, userId])
 
   return (
-    <div>
+    <div className="myorders">
       <div className="mb-2">
         <h2>Your orders</h2>
       </div>
