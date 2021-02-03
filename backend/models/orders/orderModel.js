@@ -12,6 +12,17 @@ exports.getOrders = (req, res) => {
       error: err
     }))
 }
+//get all orders
+exports.getOneOrder = (req, res) => {
+  Order.findById(req.params.id)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.satus(500).json({
+      statusCode: 500,
+      status: false,
+      message: 'Failed to get order',
+      error: err
+    }))
+}
 
 //get order with a specific user id
 exports.getOrderbyUserId = (req, res) => {
