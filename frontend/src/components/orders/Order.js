@@ -6,7 +6,7 @@ const Order = ({ order }) => {
 
   return (
     <tr>
-      <td>{date.toDateString()}</td>
+      <td>{date.toLocaleDateString()}</td>
       <td>{order._id}</td>
       <td>{order.quantity}</td>
       <td>{order.sum}</td>
