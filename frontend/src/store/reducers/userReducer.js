@@ -1,7 +1,10 @@
 import actiontypes from '../actiontypes';
 import jwt from 'jsonwebtoken';
 
+// const token = window.localStorage.getItem('token');
+
 const initState = {
+  loading: true,
   userId: null,
   error: false,
   token: null,
@@ -19,6 +22,7 @@ const userReducer = (state = initState, action) => {
       state.userEmail = jwt.decode(action.payload).user.email;
       state.token = action.payload;
       state.error = false;
+      state.loading = false;
       return state
 
     case actiontypes().user.fail:

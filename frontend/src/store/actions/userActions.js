@@ -66,7 +66,15 @@ export const registerUser = (user, callback) => {
         dispatch(fail(true))
       })
   }
+}
 
+export const setUser = () => {
+  return async dispatch => {
+    if (localStorage.getItem('token')) {
+      let token = localStorage.getItem('token')
+      dispatch(loginSuccess(token))
+    } else return
+  }
 }
 
 // export const userExists = error => {
