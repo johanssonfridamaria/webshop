@@ -26,12 +26,12 @@ const orderReducer = (state = initState, action) => {
         loading: false,
         error: true
       }
-    // case actiontypes().orders.fetchOneSuccess:
-    //   return {
-    //     order: action.payload,
-    //     loading: false,
-    //     error: false
-    //   }
+    case actiontypes().orders.fetchOneSuccess:
+      return {
+        order: action.payload,
+        loading: false,
+        error: false
+      }
 
     default:
       return state;

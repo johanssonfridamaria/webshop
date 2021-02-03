@@ -20,17 +20,17 @@ export const fetchUserOrders = id => {
   }
 }
 
-// export const fetchOneProduct = id => {
+export const fetchOneOrder = id => {
 
-//   return async dispatch => {
-//     const res = await axios.get(`/products/${id}`);
-//     if (res.status === 200) {
-//       dispatch(fetchOneSuccess(res.data))
-//     } else {
-//       dispatch(fetchFail())
-//     }
-//   }
-// }
+  return async dispatch => {
+    const res = await axios.get(`/orders/${id}`);
+    if (res.status === 200) {
+      dispatch(fetchOneSuccess(res.data))
+    } else {
+      dispatch(fetchFail())
+    }
+  }
+}
 
 export const fetchSuccess = orders => {
   return {
@@ -38,12 +38,12 @@ export const fetchSuccess = orders => {
     payload: orders
   }
 }
-// export const fetchOneSuccess = order => {
-//   return {
-//     type: actiontypes().products.fetchOneSuccess,
-//     payload: product
-//   }
-// }
+export const fetchOneSuccess = order => {
+  return {
+    type: actiontypes().orders.fetchOneSuccess,
+    payload: order
+  }
+}
 
 export const fetchFail = payload => {
   return {
