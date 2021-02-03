@@ -9,6 +9,7 @@ import ProductDetails from './views/ProductDetails';
 import Products from './views/Products';
 import Footer from './components/navigation/Footer';
 import ShopCheckout from './views/ShopCheckout';
+import OrderDetails from './views/OrderDetails';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route exact path="/checkout" component={ShopCheckout} />
               <UserRoute exact path="/orders" component={MyOrders} />
+              <UserRoute exact path="/orders/:id" component={OrderDetails} />
               <Route exact path="/:id" component={ProductDetails} />
               <Route exact path="/" component={Products} />
             </Switch>
