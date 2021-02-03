@@ -1,5 +1,5 @@
 
-import Order from './Order';
+import OrderTableItem from './OrderTableItem';
 
 const OrderTable = ({ orders }) => {
 
@@ -18,7 +18,7 @@ const OrderTable = ({ orders }) => {
         <tbody>
           {
             orders && orders.map(order => (
-              <Order order={order} key={order._id} />
+              <OrderTableItem order={order} key={order._id} />
             ))
           }
         </tbody>
