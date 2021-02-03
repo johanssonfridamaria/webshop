@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../store/actions/userActions';
+import { logout, setUser } from '../../store/actions/userActions';
 
 const Navbar = () => {
 
@@ -11,7 +11,6 @@ const Navbar = () => {
   let isOpen = useSelector(state => state.cartReducer.isOpen);
 
   const dispatch = useDispatch();
-
 
   const toogleBag = () => {
     isOpen = !isOpen
@@ -28,6 +27,9 @@ const Navbar = () => {
     }
   }
 
+  useEffect(() => {
+    dispatch(setUser())
+  }, [])
 
   return (
     <nav className="navbar">
