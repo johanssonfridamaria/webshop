@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ProductOrder = ({ item }) => {
 
+  const [totalprice, setTotalprice] = useState(0)
 
+  const getProductTotalPrice = (qty, price) => {
+    const total = qty * price;
+    setTotalprice(total)
+    return setTotalprice;
+  }
+
+  useEffect(() => {
+    getProductTotalPrice(item.quantity, item.price)
+  })
 
   return (
     <div className="orderdetails__product">
@@ -14,7 +24,7 @@ const ProductOrder = ({ item }) => {
         <small>{item.quantity} pcs </small>
       </div>
       <div>
-        <small>{item.price}:-</small>
+        <small>{totalprice}:-</small>
       </div>
     </div>
   )
