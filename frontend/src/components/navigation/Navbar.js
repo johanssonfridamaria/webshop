@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout, setUser } from '../../store/actions/userActions';
+import { logout } from '../../store/actions/userActions';
 
 const Navbar = () => {
 
@@ -26,10 +26,6 @@ const Navbar = () => {
       nav.style.width = `${0}rem`
     }
   }
-
-  useEffect(() => {
-    dispatch(setUser())
-  }, [])
 
   return (
     <nav className="navbar">
