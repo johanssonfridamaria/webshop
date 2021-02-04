@@ -27,8 +27,7 @@ const LoginForm = () => {
           catch { history.push('/') }
         }
       ));
-    } else
-      return error = true;
+    } return
   };
 
   // useEffect(() => {

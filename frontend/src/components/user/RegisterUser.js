@@ -34,8 +34,7 @@ const RegisterUser = () => {
       password.current.value = '';
       firstName.current.value = '';
       lastName.current.value = '';
-    } else
-      error = true;
+    } else return
   }
 
   return (
