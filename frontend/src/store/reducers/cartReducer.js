@@ -47,7 +47,6 @@ const cartReducer = (state = initState, action) => {
       return state
 
     case actiontypes().cart.delete:
-      console.log(action.payload)
       state.cart = state.cart.filter(item => item._id !== action.payload);
 
       state.totalCartQuantity = getTotalQuantity(state.cart);

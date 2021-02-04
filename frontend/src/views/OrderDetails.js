@@ -16,7 +16,6 @@ const OrderDetails = () => {
   useEffect(() => {
     dispatch(fetchInit());
     dispatch(fetchOneOrder(id))
-    console.log(order)
   }, [dispatch, id])
 
   return (
