@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CustomerInfo from './CustomerInfo';
 import { checkoutCart } from '../../store/actions/cartActions';
 
 const Summary = () => {
 
-  const history = useHistory();
   const dispatch = useDispatch();
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);

@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../../store/actions/userActions';
 
 const LoginForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  let error = useSelector(state => state.userReducer.error);
-  let token = useSelector(state => state.userReducer.token)
+  // let error = useSelector(state => state.userReducer.error);
+  // let token = useSelector(state => state.userReducer.token)
 
   const email = useRef();
   const password = useRef();

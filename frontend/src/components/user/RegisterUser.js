@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { registerUser } from '../../store/actions/userActions';
 
@@ -13,7 +13,7 @@ const RegisterUser = () => {
   const email = useRef();
   const password = useRef();
 
-  let error = useSelector(state => state.userReducer.error);
+  // let error = useSelector(state => state.userReducer.error);
 
   const onSub = e => {
     e.preventDefault();
