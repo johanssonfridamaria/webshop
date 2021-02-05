@@ -30,7 +30,7 @@
     "url": "https://github.com/johanssonfridamaria/webshop.git"
   },
   "author": "Frida Johansson",
-  "homepage": "",
+  "homepage": "/frontend",
   "eslintConfig": {
     "extends": [
       "react-app",

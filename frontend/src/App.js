@@ -22,7 +22,7 @@ function App() {
 
   useEffect(() => {
     dispatch(setUser())
-  }, [])
+  }, [dispatch])
 
   return (
     <div id="app">
