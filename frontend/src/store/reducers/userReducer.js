@@ -7,7 +7,6 @@ const initState = {
   loading: true,
   userId: null,
   userAlreadyExists: false,
-  inputError: false,
   error: false,
   token: null,
   userFirstName: null,
