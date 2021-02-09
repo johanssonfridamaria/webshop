@@ -38,6 +38,12 @@ export const fail = error => {
     payload: error
   }
 }
+export const userExists = error => {
+  return {
+    type: actiontypes().user.fail,
+    payload: error
+  }
+}
 
 export const logout = () => {
   localStorage.removeItem('token');
@@ -56,7 +62,7 @@ export const registerUser = (user, callback) => {
         }
 
         else if (res.status === 400) {
-          dispatch(fail(true))
+          dispatch(userExists(true))
         }
         else {
           dispatch(fail(true))
@@ -73,7 +79,9 @@ export const setUser = () => {
     if (localStorage.getItem('token')) {
       let token = localStorage.getItem('token')
       dispatch(loginSuccess(token))
-    } else return
+    } else {
+      dispatch(fail(true))
+    }
   }
 }
 
