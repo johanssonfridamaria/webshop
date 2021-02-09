@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { registerUser } from '../../store/actions/userActions';
 
@@ -13,7 +13,8 @@ const RegisterUser = () => {
   const email = useRef();
   const password = useRef();
 
-  // let error = useSelector(state => state.userReducer.error);
+  let existsError = useSelector(state => state.userReducer.userAlreadyExists);
+  let inputError = useSelector(state => state.userReducer.inputError);
 
   const onSub = e => {
     e.preventDefault();
@@ -34,7 +35,7 @@ const RegisterUser = () => {
       password.current.value = '';
       firstName.current.value = '';
       lastName.current.value = '';
-    } else return
+    } else inputError = true
   }
 
   return (
@@ -59,15 +60,15 @@ const RegisterUser = () => {
         <input type="password" id="password" className="form__input" ref={password} />
       </div>
 
-      {/* {!error && (
-          <div className="form__error"><small>Please fill in all fields!</small></div>
+      {inputError && (
+        <div className="form__error"><small>Please fill in all fields!</small></div>
+      )
+      }
+      {existsError &&
+        (
+          <div className="form__error"><small>User already exists</small></div>
         )
-        }
-        {!error &&
-          (
-            <div className="form__error"><small>User already exists</small></div>
-          )
-        } */}
+      }
       <div className="mt-2"><small >Already have an account? <Link to="/login">Sign in</Link> </small></div>
       <button type="submit" className="btn-secondary mt-1">Register</button>
     </form>
