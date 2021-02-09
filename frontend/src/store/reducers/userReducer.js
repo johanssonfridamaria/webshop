@@ -6,6 +6,8 @@ import jwt from 'jsonwebtoken';
 const initState = {
   loading: true,
   userId: null,
+  userAlreadyExists: false,
+  inputError: false,
   error: false,
   token: null,
   userFirstName: null,
@@ -27,19 +29,19 @@ const userReducer = (state = initState, action) => {
 
     case actiontypes().user.fail:
       state.error = action.payload;
+      state.loading = false;
+      state.token = null;
+      return state
+
+    case actiontypes().user.exists:
+      state.userAlreadyExists = action.payload;
+      state.loading = false;
+      state.token = null;
       return state
 
     case actiontypes().user.logout:
       state.token = null;
       return state
-
-    // case actiontypes().user.userExists:
-    //   state.error = action.payload
-    //   return state
-
-    // case actiontypes().user.registerFailed:
-    //   state.error = action.payload
-    //   return state
 
     default:
       return state
