@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/actions/userActions';
 
 const LoginForm = () => {
