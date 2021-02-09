@@ -7,7 +7,8 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  // let error = useSelector(state => state.userReducer.error);
+  let inputError = useSelector(state => state.userReducer.inputError);
+  let error = useSelector(state => state.userReducer.error);
   // let token = useSelector(state => state.userReducer.token)
 
   const email = useRef();
@@ -50,15 +51,15 @@ const LoginForm = () => {
         <label className="form__label" htmlFor="password">Password:</label>
         <input type="password" id="password" className="form__input" ref={password} />
       </div>
-      {/* {!error && (
-          <div className="form__error"><small>Please fill in all fields!</small></div>
+      {!inputError && (
+        <div className="form__error"><small>Please fill in all fields!</small></div>
+      )
+      }
+      {!error &&
+        (
+          <div className="form__error"><small>Email or password is incorrect!</small></div>
         )
-        }
-        {!error &&
-          (
-            <div className="form__error"><small>Email or password is incorrect!</small></div>
-          )
-        } */}
+      }
       <div className="mt-2"><small >Don't have an account? <Link to="/register">Register</Link> </small></div>
       <button type="submit" className="btn-secondary mt-1">Sign in</button>
     </form>
