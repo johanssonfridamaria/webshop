@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { registerUser } from '../../store/actions/userActions';
@@ -13,8 +13,11 @@ const RegisterUser = () => {
   const email = useRef();
   const password = useRef();
 
+  const [inputError, setInputError] = useState(false)
+
   let existsError = useSelector(state => state.userReducer.userAlreadyExists);
-  let inputError = useSelector(state => state.userReducer.inputError);
+  // let inputError = useSelector(state => state.userReducer.inputError);
+
 
   const onSub = e => {
     e.preventDefault();
@@ -26,7 +29,7 @@ const RegisterUser = () => {
       password: password.current.value,
     }
 
-    if (firstName !== '' && lastName !== '' && email !== '' && password !== 0) {
+    if (firstName.current.value !== '' && lastName.current.value !== '' && email.current.value !== '' && password.current.value !== '') {
       dispatch(registerUser(user, () => {
         try { history.push(history.location.state.from.pathname) }
         catch { history.push('/') }
@@ -35,7 +38,9 @@ const RegisterUser = () => {
       password.current.value = '';
       firstName.current.value = '';
       lastName.current.value = '';
-    } else inputError = true
+    } else {
+      return setInputError(true)
+    }
   }
 
   return (
