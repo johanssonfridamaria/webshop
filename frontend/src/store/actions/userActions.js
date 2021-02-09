@@ -40,7 +40,7 @@ export const fail = error => {
 }
 export const userExists = error => {
   return {
-    type: actiontypes().user.fail,
+    type: actiontypes().user.userExists,
     payload: error
   }
 }
