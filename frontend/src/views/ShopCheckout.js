@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import Summary from '../components/checkOut/Summary'
 import CartProduct from '../components/cart/CartProduct';
+import { Link } from 'react-router-dom';
 
 
 const ShopCheckout = () => {
@@ -11,6 +12,7 @@ const ShopCheckout = () => {
   const empty = (
     <div className="shopping-cart__product">
       Your cart is empty
+      <Link to="/" className="btn-secondary">Go back to shop</Link>
     </div>
   )
 
