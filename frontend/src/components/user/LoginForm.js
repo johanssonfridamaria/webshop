@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/actions/userActions';
@@ -7,38 +7,36 @@ const LoginForm = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  let inputError = useSelector(state => state.userReducer.inputError);
+  const [inputError, setInputError] = useState(false)
   let error = useSelector(state => state.userReducer.error);
-  // let token = useSelector(state => state.userReducer.token)
 
   const email = useRef();
   const password = useRef();
 
+  const isValid = () => {
+    if (email.current.value !== '' && password.current.value !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   const onSub = e => {
     e.preventDefault();
-    if (email.current.value !== '' && email.current.value !== '') {
+
+    if (isValid()) {
       dispatch(login(email.current.value, password.current.value,
         () => {
-          // if (token) {
-          //   email.current.value = '';
-          //   password.current.value = '';
-          //   history.push('/')
-          // }
           try { history.push(history.location.state.from.pathname) }
           catch { history.push('/') }
         }
       ));
-    } return
+      email.current.value = '';
+      password.current.value = '';
+    } else {
+      return setInputError(true)
+    }
   };
-
-  // useEffect(() => {
-  //   if (token) {
-  //     email.current.value = '';
-  //     password.current.value = '';
-  //     history.push('/')
-  //   }
-  // }, [token, history])
-
 
   return (
     <form onSubmit={onSub}>
@@ -51,11 +49,10 @@ const LoginForm = () => {
         <label className="form__label" htmlFor="password">Password:</label>
         <input type="password" id="password" className="form__input" ref={password} />
       </div>
-      {!inputError && (
-        <div className="form__error"><small>Please fill in all fields!</small></div>
-      )
+      {inputError &&
+        (<div className="form__error"><small>Please fill in all fields!</small></div>)
       }
-      {!error &&
+      {error &&
         (
           <div className="form__error"><small>Email or password is incorrect!</small></div>
         )
