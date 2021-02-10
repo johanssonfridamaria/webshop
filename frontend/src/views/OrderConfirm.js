@@ -5,7 +5,8 @@ const OrderConfirm = () => {
     <div>
       <h2>Thanks for your order!</h2>
       <h5>This is only a fictional shop, the order was only sent to the database.</h5>
-      <h3>Thanks for checking out the shop!</h3>
+      <h3>Thanks for checking out my shop!</h3>
+      <button className="btn btn-secondary">Go back to the shop</button>
     </div>
   )
 }
