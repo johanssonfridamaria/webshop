@@ -14,7 +14,6 @@ const Navbar = () => {
 
   const toogleBag = () => {
     isOpen = !isOpen
-    // openCart(isOpen)
 
     const move = document.querySelector('#app');
     const nav = document.querySelector('.shopping-cart')
