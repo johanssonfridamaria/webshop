@@ -14,8 +14,6 @@ export const login = (email, password, callback) => {
           localStorage.setItem('token', res.data.token);
           dispatch(loginSuccess(res.data.token))
           callback();
-        } else {
-          return dispatch(fail(true))
         }
       })
       .catch(() => {
@@ -61,15 +59,12 @@ export const registerUser = (user, callback) => {
           dispatch(login(user.email, user.password, callback))
         }
 
-        else if (res.status === 400) {
-          dispatch(userExists(true))
-        }
-        else {
-          dispatch(fail(true))
-        }
       })
       .catch(() => {
-        dispatch(fail(true))
+        if (res.status === 400) {
+          dispatch(userExists(true))
+        } else
+          dispatch(fail(true))
       })
   }
 }
@@ -84,17 +79,3 @@ export const setUser = () => {
     }
   }
 }
-
-// export const userExists = error => {
-//   return {
-//     type: actiontypes().user.userExists,
-//     payload: error
-//   }
-// }
-
-// export const registerFailed = error => {
-//   return {
-//     type: actiontypes().user.registerFailed,
-//     payload: error
-//   }
-// }
