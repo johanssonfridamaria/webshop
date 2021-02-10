@@ -62,7 +62,7 @@ exports.loginAdmin = (req, res) => {
       }
 
       try {
-        bcrypt.compare(req.body.password, admin.passwordHash, (result) => {
+        bcrypt.compare(req.body.passwordHash, admin.passwordHash, (result) => {
           if (result) {
             let _admin = {
               id: admin._id,
