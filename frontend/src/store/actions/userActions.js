@@ -14,10 +14,12 @@ export const login = (email, password, callback) => {
           localStorage.setItem('token', res.data.token);
           dispatch(loginSuccess(res.data.token))
           callback();
+        } else {
+          dispatch(fail(true))
         }
       })
-      .catch(() => {
-
+      .catch(err => {
+        console.log(err)
         dispatch(fail(true))
       })
   }
@@ -54,17 +56,17 @@ export const registerUser = (user, callback) => {
   return async dispatch => {
     await axios.post('/users/register', user)
       .then(res => {
-
+        console.log(res)
         if (res.status === 200) {
           dispatch(login(user.email, user.password, callback))
+        } else if (res.status === 400) {
+          dispatch(userExists(true))
         }
 
       })
-      .catch(() => {
-        if (res.status === 400) {
-          dispatch(userExists(true))
-        } else
-          dispatch(fail(true))
+      .catch(err => {
+        console.log(err)
+        dispatch(fail(true))
       })
   }
 }
@@ -74,8 +76,6 @@ export const setUser = () => {
     if (localStorage.getItem('token')) {
       let token = localStorage.getItem('token')
       dispatch(loginSuccess(token))
-    } else {
-      dispatch(fail(true))
     }
   }
 }
