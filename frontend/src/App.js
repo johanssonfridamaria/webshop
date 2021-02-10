@@ -14,10 +14,13 @@ import OrderDetails from './views/OrderDetails';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './store/actions/userActions';
+import OrderConfirm from './views/OrderConfirm';
 
 function App() {
 
   const loading = useSelector(state => state.userReducer.loading);
+  const user = useSelector(state => state.userReducer.token)
+  const products = useSelector(state => state.productsReducer.products)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,6 +46,7 @@ function App() {
                   <UserRoute exact path="/orders/:id" component={OrderDetails} />
                   <Route exact path="/:id" component={ProductDetails} />
                   <Route exact path="/" component={Products} />
+                  <Route exact path="/confirmorder" component={OrderConfirm} />
                 </Switch>
               )
             }
