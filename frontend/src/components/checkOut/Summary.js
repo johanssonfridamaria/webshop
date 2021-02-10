@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import CustomerInfo from './CustomerInfo';
 import { checkoutCart } from '../../store/actions/cartActions';
 
 const Summary = () => {
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const shoppingCart = useSelector(state => state.cartReducer.cart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
   const isLoggedIn = useSelector(state => state.userReducer.token);
-  let error = useSelector(state => state.cartReducer.error);
+
+  const [loginError, setLoginError] = useState(false);
+  const [cartError, setCartError] = useState(false);
+
 
   const sendOrder = () => {
     let order = {
@@ -21,12 +25,18 @@ const Summary = () => {
     }
 
     if (isLoggedIn) {
-      dispatch(checkoutCart(order))
+      setLoginError(false)
+      if (order.shoppingCart > 0) {
+        setCartError(false)
+        dispatch(checkoutCart(order))
+        history.push('/confirmorder')
+      } else {
+        return setCartError(true)
+      }
     } else {
-      return
+      setLoginError(true)
     }
   }
-
 
   return (
     <div>
@@ -50,8 +60,13 @@ const Summary = () => {
           <p>{totalCartAmount}</p>
         </div>
         {
-          error && (
+          loginError && (
             <p>You have to sign in before sending the order</p>
+          )
+        }
+        {
+          cartError && (
+            <p>Your cart is empty!</p>
           )
         }
 
