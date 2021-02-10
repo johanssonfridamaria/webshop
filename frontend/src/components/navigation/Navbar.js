@@ -3,6 +3,10 @@ import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
+import { openCart, toggleCart } from '../../store/actions/cartActions';
+
+import './Navbar.scss';
+
 
 const Navbar = () => {
 
@@ -13,17 +17,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const toogleBag = () => {
-    isOpen = !isOpen
-
-    const move = document.querySelector('#app');
-    const nav = document.querySelector('.shopping-cart')
-    if (isOpen) {
-      nav.style.width = `${15}rem`
-      move.style.marginRight = `${15}rem`
-    } else {
-      move.style.marginRight = `${0}rem`
-      nav.style.width = `${0}rem`
-    }
+    dispatch(toggleCart())
   }
 
   return (
@@ -50,7 +44,7 @@ const Navbar = () => {
               <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
               <span className="quantity">({totalCartQuantity})</span>
             </span>
-            <div className='shopping-cart'>
+            <div className={`shopping-cart ${isOpen ? 'open' : 'closed'}`}>
               <i className="fas fa-times closebtn" onClick={toogleBag}></i>
               <ShoppingCart toggleBag={toogleBag} />
             </div>
