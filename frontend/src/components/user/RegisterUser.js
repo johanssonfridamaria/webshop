@@ -18,6 +18,13 @@ const RegisterUser = () => {
   let existsError = useSelector(state => state.userReducer.userAlreadyExists);
   // let inputError = useSelector(state => state.userReducer.inputError);
 
+  const isValid = () => {
+    if (firstName.current.value !== '' && lastName.current.value !== '' && email.current.value !== '' && password.current.value !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
 
   const onSub = e => {
     e.preventDefault();
@@ -29,7 +36,7 @@ const RegisterUser = () => {
       password: password.current.value,
     }
 
-    if (firstName.current.value !== '' && lastName.current.value !== '' && email.current.value !== '' && password.current.value !== '') {
+    if (isValid()) {
       dispatch(registerUser(user, () => {
         try { history.push(history.location.state.from.pathname) }
         catch { history.push('/') }
@@ -42,6 +49,8 @@ const RegisterUser = () => {
       return setInputError(true)
     }
   }
+
+
 
   return (
     <form onSubmit={onSub}>
