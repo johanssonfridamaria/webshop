@@ -52,9 +52,8 @@ export const checkoutCart = (order) => {
   }
 }
 
-// export const openCart = isOpen => {
-//   return {
-//     type: actiontypes().cart.openCart,
-//     payload: isOpen
-//   }
-// }
+export const toggleCart = () => {
+  return {
+    type: actiontypes().cart.toggleCart,
+  }
+}
