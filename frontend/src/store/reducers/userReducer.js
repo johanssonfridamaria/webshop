@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 // const token = window.localStorage.getItem('token');
 
 const initState = {
-  loading: true,
+  loading: null,
   userId: null,
   userAlreadyExists: false,
   error: false,
@@ -17,30 +17,41 @@ const initState = {
 const userReducer = (state = initState, action) => {
   switch (action.type) {
     case actiontypes().user.loginSuccess:
-      state.userId = jwt.decode(action.payload).user.id;
-      state.userFirstName = jwt.decode(action.payload).user.firstName;
-      state.userLastName = jwt.decode(action.payload).user.lastName;
-      state.userEmail = jwt.decode(action.payload).user.email;
-      state.token = action.payload;
-      state.error = false;
-      state.loading = false;
-      return state
+
+      return {
+        ...state,
+        userId: jwt.decode(action.payload).user.id,
+        userFirstName: jwt.decode(action.payload).user.firstName,
+        userLastName: jwt.decode(action.payload).user.lastName,
+        userEmail: jwt.decode(action.payload).user.email,
+        token: action.payload,
+        error: false,
+        loading: false
+      };
 
     case actiontypes().user.fail:
-      state.error = action.payload;
-      state.loading = false;
-      state.token = null;
-      return state
+
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        token: null
+      };
 
     case actiontypes().user.exists:
-      state.userAlreadyExists = action.payload;
-      state.loading = false;
-      state.token = null;
-      return state
+
+      return {
+        ...state,
+        userAlreadyExists: action.payload,
+        loading: false,
+        token: null
+      }
 
     case actiontypes().user.logout:
-      state.token = null;
-      return state
+      return {
+        ...state,
+        token: null
+      }
 
     default:
       return state
