@@ -19,8 +19,7 @@ import { setUser } from './store/actions/userActions';
 function App() {
 
   const loading = useSelector(state => state.userReducer.loading);
-  // const user = useSelector(state => state.userReducer.token)
-  // const products = useSelector(state => state.productsReducer.products)
+  const isOpen = useSelector(state => state.cartReducer.isOpen);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <div id="app">
+    <div id="app" className={`${isOpen ? 'increase' : 'close'}`}>
       <BrowserRouter>
         <Navbar />
         <div className="container">
