@@ -10,17 +10,17 @@ import Products from './views/Products';
 import Footer from './components/navigation/Footer';
 import ShopCheckout from './views/ShopCheckout';
 import OrderDetails from './views/OrderDetails';
+import OrderConfirm from './views/OrderConfirm';
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './store/actions/userActions';
-import OrderConfirm from './views/OrderConfirm';
 
 function App() {
 
   const loading = useSelector(state => state.userReducer.loading);
-  const user = useSelector(state => state.userReducer.token)
-  const products = useSelector(state => state.productsReducer.products)
+  // const user = useSelector(state => state.userReducer.token)
+  // const products = useSelector(state => state.productsReducer.products)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,11 +42,11 @@ function App() {
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/checkout" component={ShopCheckout} />
+                  <Route exact path="/confirmorder" component={OrderConfirm} />
                   <UserRoute exact path="/orders" component={MyOrders} />
                   <UserRoute exact path="/orders/:id" component={OrderDetails} />
                   <Route exact path="/:id" component={ProductDetails} />
                   <Route exact path="/" component={Products} />
-                  <Route exact path="/confirmorder" component={OrderConfirm} />
                 </Switch>
               )
             }
