@@ -13,6 +13,7 @@ const actiontypes = () => {
       clear: 'CLEAR_CART',
       openCart: 'OPEN_CART',
       checkout: 'CHECKOUT',
+      toggleCart: 'TOGGLE_CART'
     },
     user: {
       loginSuccess: 'LOGIN_SUCCESS',
