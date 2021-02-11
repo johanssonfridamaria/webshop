@@ -11,13 +11,13 @@ const initState = {
 const cartReducer = (state = initState, action) => {
   let itemIndex;
   let nextState;
+  let secondState;
 
   switch (action.type) {
 
     case actiontypes().cart.add:
 
-      let newState = { ...state, cart: [...state.cart] };
-
+      let newState = { ...state, cart: [...state.cart.map(item => ({ ...item }))] };
       let product = action.payload;
 
       itemIndex = state.cart.findIndex(item => item._id === product._id)
@@ -38,54 +38,47 @@ const cartReducer = (state = initState, action) => {
       return newState
 
     case actiontypes().cart.remove:
-      // let nextState = { ...state, cart: [...state.cart] };
 
+      let nextState = { ...state, cart: [...state.cart.map(item => ({ ...item }))] };
 
+      if (action.payload.quantity === 1) {
+        nextState.cart = nextState.cart.filter(item => item._id !== action.payload._id)
+      } else {
+        const item = nextState.cart.find(item => item._id === action.payload._id);
+        item.quantity -= 1;
+      }
 
+      nextState.totalCartAmount = getTotalAmount(nextState.cart);
+      nextState.totalCartQuantity = getTotalQuantity(nextState.cart);
 
-      // action.payload.quantity === 1
-      //   ? nextState.cart = state.cart.filter(item => item._id !== action.payload._id)
-      //   : action.payload.quantity -= 1
-
-      // nextState.totalCartQuantity = getTotalQuantity(nextState.cart);
-      // nextState.totalCartAmount = getTotalAmount(nextState.cart);
-
-
-
-      nextState = {
-        ...state,
-        totalCartAmount: getTotalAmount(state.cart),
-        totalCartQuantity: getTotalQuantity(state.cart),
-        cart: [
-          ...(action.payload.quantity === 1 ?
-            state.cart.filter(x => x._id !== action.payload._id)
-            :
-            state.cart.map(x => x._id === action.payload._id ? { ...x, quantity: x.quantity - 1 } : x))
-        ]
-      };
       localStorage.setItem('cart', JSON.stringify(nextState));
+
       return nextState;
 
     case actiontypes().cart.delete:
-      state.cart = state.cart.filter(item => item._id !== action.payload);
+      secondState = {
+        ...state,
+        cart: [
+          ...state.cart = state.cart.filter(item => item._id !== action.payload)
+        ],
+      }
+      secondState.totalCartAmount = getTotalAmount(secondState.cart);
+      secondState.totalCartQuantity = getTotalQuantity(secondState.cart);
 
-      state.totalCartQuantity = getTotalQuantity(state.cart);
-      state.totalCartAmount = getTotalAmount(state.cart);
-
-      localStorage.setItem('cart', JSON.stringify(state))
-
-      return state
+      localStorage.setItem('cart', JSON.stringify(secondState))
+      return secondState;
 
     case actiontypes().cart.toggleCart:
       state.isOpen = !state.isOpen
       return state;
 
     case actiontypes().cart.clear:
-      state.shoppingCart = []
-      state.totalCartAmount = 0
-      state.totalCartQuantity = 0
-
-      return state
+      return {
+        ...state,
+        cart: [],
+        totalCartAmount: 0,
+        totalCartQuantity: 0,
+      }
 
     default:
       let cart = JSON.parse(localStorage.getItem('cart'))
@@ -94,9 +87,7 @@ const cartReducer = (state = initState, action) => {
         state = cart
 
       return state
-
   }
-
 }
 
 const getTotalQuantity = cart => {
