@@ -19,7 +19,7 @@ const actiontypes = () => {
       loginSuccess: 'LOGIN_SUCCESS',
       fail: 'FAIL',
       logout: 'LOGOUT',
-      userExists: 'USER_EXISTS'
+      exists: 'USER_EXISTS'
     },
     orders: {
       fetchInit: 'FETCH_INIT',
