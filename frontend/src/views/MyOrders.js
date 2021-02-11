@@ -2,6 +2,7 @@ import OrderTable from '../components/orders/OrderTable';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchInit, fetchUserOrders } from '../store/actions/orderActions';
+import '../components/orders/MyOrders.scss'
 
 const MyOrders = () => {
 
