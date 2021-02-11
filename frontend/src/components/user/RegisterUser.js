@@ -16,7 +16,6 @@ const RegisterUser = () => {
   const [inputError, setInputError] = useState(false)
 
   let existsError = useSelector(state => state.userReducer.userAlreadyExists);
-  // let inputError = useSelector(state => state.userReducer.inputError);
 
   const isValid = () => {
     if (firstName.current.value !== '' && lastName.current.value !== '' && email.current.value !== '' && password.current.value !== '') {
@@ -38,13 +37,13 @@ const RegisterUser = () => {
 
     if (isValid()) {
       dispatch(registerUser(user, () => {
-        try { history.push(history.location.state.from.pathname) }
-        catch { history.push('/') }
+        history.push('/')
       }));
-      email.current.value = '';
-      password.current.value = '';
       firstName.current.value = '';
       lastName.current.value = '';
+      email.current.value = '';
+      password.current.value = '';
+      setInputError(false)
     } else {
       return setInputError(true)
     }
@@ -75,12 +74,12 @@ const RegisterUser = () => {
       </div>
 
       {inputError && (
-        <div className="form__error"><small>Please fill in all fields!</small></div>
+        <div className="error"><small>Please fill in all fields!</small></div>
       )
       }
-      {existsError &&
+      {existsError && !inputError &&
         (
-          <div className="form__error"><small>User already exists</small></div>
+          <div className="error"><small>Can not register user! Try again</small></div>
         )
       }
       <div className="mt-2"><small >Already have an account? <Link to="/login">Sign in</Link> </small></div>
