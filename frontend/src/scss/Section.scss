@@ -6,11 +6,19 @@
     &--outer {
       display: flex;
       justify-content: center;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
     }
     &--inner {
       display: flex;
       flex-direction: column;
       padding: 0 3rem;
+
+      @media screen and (max-width: 768px) {
+        padding: 0;
+      }
     }
   }
 
