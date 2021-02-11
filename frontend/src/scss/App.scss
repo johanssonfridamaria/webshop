@@ -16,14 +16,6 @@ html {
   color: $secondary-color;
 }
 
-.increase {
-  margin-right: 15rem;
-
-  @media screen and (max-width: 768px) {
-    margin-right: 0;
-  }
-}
-
 a {
   text-decoration: none;
   color: set-text-color($light-color);
@@ -35,4 +27,12 @@ a {
 
 .view {
   min-height: calc(100vh - (57.6px + 40.9px + 64px + 64px));
+}
+
+.increase {
+  margin-right: 15rem;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+  }
 }
