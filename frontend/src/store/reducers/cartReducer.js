@@ -10,7 +10,6 @@ const initState = {
 
 const cartReducer = (state = initState, action) => {
   let itemIndex;
-  let nextState;
   let secondState;
 
   switch (action.type) {
