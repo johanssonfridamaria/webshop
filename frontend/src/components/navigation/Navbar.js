@@ -35,7 +35,7 @@ const Navbar = () => {
         <div>
           {
 
-            isAuth ? <a className="link__logout" onClick={() => dispatch(logout())}>Sign out</a>
+            isAuth ? <span className="link__logout" onClick={() => dispatch(logout())}>Sign out</span>
               : <NavLink exact to="/login" activeClassName="link__active">Sign in</NavLink>
 
           }
