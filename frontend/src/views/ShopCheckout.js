@@ -9,8 +9,8 @@ const ShopCheckout = () => {
   const shoppingCart = useSelector(state => state.cartReducer.cart);
 
   const empty = (
-    <div className="shopping-cart__product">
-      Your cart is empty
+    <div className="flex-column">
+      <p className="mb-2">Your cart is empty</p>
       <Link to="/" className="btn-secondary">Go back to shop</Link>
     </div>
   )
