@@ -83,11 +83,11 @@ img {
   }
 
   img {
-    width: 30%;
-    height: 30%;
+    width: 15rem;
+    height: 15rem;
   }
 
-  @media (max-width: 592px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 }
