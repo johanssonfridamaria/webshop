@@ -20,10 +20,8 @@ const ProductOrder = ({ item }) => {
         <img src={item.image} alt={item.name} />
         <strong className="ml-1">{item.name}</strong>
       </div>
-      <div>
-        <small>{item.quantity} pcs </small>
-      </div>
-      <div>
+      <div className="orderdetails__price">
+        <small className="mr-2">{item.quantity} pcs </small>
         <small>{totalprice}:-</small>
       </div>
     </div>
