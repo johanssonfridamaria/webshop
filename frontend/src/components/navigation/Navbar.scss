@@ -3,9 +3,12 @@
 
 .navbar {
   @include set-background($light-color);
+  flex-direction: row;
+  padding: 1rem 0;
 
   .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
   }
@@ -16,7 +19,11 @@
   }
 
   li {
-    padding: 1rem;
+    padding: 0 1rem;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
   }
 
   a {
@@ -52,5 +59,23 @@
 
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+}
+
+.navbar-nav {
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
+    justify-items: flex-start;
+    border-bottom: 0.1rem solid $secondary-color;
+  }
+}
+.toggle-btn {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: inline-block;
   }
 }
