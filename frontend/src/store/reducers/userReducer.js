@@ -1,7 +1,6 @@
 import actiontypes from '../actiontypes';
 import jwt from 'jsonwebtoken';
 
-// const token = window.localStorage.getItem('token');
 
 const initState = {
   loading: null,
