@@ -3,7 +3,8 @@ import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
-import { openCart, toggleCart } from '../../store/actions/cartActions';
+import { toggleCart } from '../../store/actions/cartActions';
+import '../cart/Cart.scss';
 
 import './Navbar.scss';
 
