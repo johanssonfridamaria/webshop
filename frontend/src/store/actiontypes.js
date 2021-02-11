@@ -1,10 +1,10 @@
 const actiontypes = () => {
   return {
     products: {
-      fetchInit: 'FETCH_INIT',
-      fetchSuccess: 'FETCH_SUCESS',
-      fetchFail: 'FETCH_FAIL',
-      fetchOneSuccess: 'FETCH_ONE_SUCESS',
+      fetchInit: 'FETCH_PRODUCT_INIT',
+      fetchSuccess: 'FETCH_PRODUCT_SUCCESS',
+      fetchFail: 'FETCH_PRODUCT_FAIL',
+      fetchOneSuccess: 'FETCH_ONE_PRODUCT_SUCCESS',
     },
     cart: {
       add: 'ADD_TO_CART',
@@ -22,10 +22,10 @@ const actiontypes = () => {
       exists: 'USER_EXISTS'
     },
     orders: {
-      fetchInit: 'FETCH_INIT',
-      fetchSuccess: 'FETCH_SUCESS',
-      fetchFail: 'FETCH_FAIL',
-      fetchOneSuccess: 'FETCH_ONE_SUCESS',
+      fetchInit: 'FETCH_ORDER_INIT',
+      fetchSuccess: 'FETCH_ORDER_SUCCESS',
+      fetchFail: 'FETCH_ORDER_FAIL',
+      fetchOneSuccess: 'FETCH_ONE_ORDER_SUCCESS',
     },
   }
 }

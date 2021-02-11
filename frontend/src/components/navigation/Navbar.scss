@@ -62,6 +62,12 @@
   }
 }
 
+.closed {
+  @media screen and (max-width: 768px) {
+    display: none !important;
+  }
+}
+
 .navbar-nav {
   @media screen and (max-width: 768px) {
     flex-direction: column;

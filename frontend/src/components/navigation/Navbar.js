@@ -32,7 +32,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="logo">WEBSHOP</Link>
-        <ul className={`navbar-nav ${toggleNav ? 'd-none' : ''}`}>
+        <ul className={`navbar-nav ${toggleNav ? 'closed' : ''}`}>
           <li><NavLink exact to="/" activeClassName="link__active">Shop</NavLink></li>
           {
             isAuth && (
