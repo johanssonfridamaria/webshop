@@ -8,7 +8,7 @@
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 //Margin & padding classes
 $spaceamounts: (1, 2, 3, 4, 5);
