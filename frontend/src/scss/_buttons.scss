@@ -6,12 +6,19 @@
   background-color: transparent;
   outline: transparent;
   font-size: 0.8rem;
+  cursor: pointer;
 
   &:hover {
     transform: scale(0.98);
   }
 }
 
+.btn-cart {
+  @extend %btn;
+  // background-color: lighten($primary-color, 10%);
+  background-color: transparent;
+  color: $secondary-color;
+}
 .btn-primary {
   @extend %btn;
   // background-color: lighten($primary-color, 10%);
@@ -34,6 +41,7 @@
   font-size: 1rem;
   padding: 0;
   margin-right: 0.3rem;
+  cursor: pointer;
 
   &:hover {
     transform: scale(0.95);
