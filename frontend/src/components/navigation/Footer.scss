@@ -1,0 +1,14 @@
+@import '../../scss/config';
+@import '../../scss/utilities';
+
+footer {
+  @include set-background($secondary-color);
+  color: $light-color;
+
+  p {
+    font-size: 0.8rem;
+  }
+  .container {
+    text-align: center;
+  }
+}
