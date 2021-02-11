@@ -34,7 +34,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <div id="app" className={`${isOpen ? 'increase' : 'close'}`}>
+    <div id="app" className={`${isOpen ? 'increase' : ''}`}>
       <BrowserRouter>
         <Navbar />
         <div className="container">
