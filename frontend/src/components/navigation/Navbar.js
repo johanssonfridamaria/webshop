@@ -32,24 +32,22 @@ const Navbar = () => {
             )
           }
         </ul>
-        <ul>
+        <div>
           {
 
-            isAuth ? <li><span className="link__logout" onClick={() => dispatch(logout())}>Sign out</span></li>
-              : <li><NavLink exact to="/login" activeClassName="link__active">Sign in</NavLink></li>
+            isAuth ? <a className="link__logout" onClick={() => dispatch(logout())}>Sign out</a>
+              : <NavLink exact to="/login" activeClassName="link__active">Sign in</NavLink>
 
           }
-          <li>
-            <span className="cart">
-              <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
-              <span className="quantity">({totalCartQuantity})</span>
-            </span>
-            <div className={`shopping-cart ${isOpen ? 'open' : 'closed'}`}>
-              <i className="fas fa-times closebtn" onClick={toogleBag}></i>
-              <ShoppingCart toggleBag={toogleBag} />
-            </div>
-          </li>
-        </ul>
+          <button className="btn-cart">
+            <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
+            <span >({totalCartQuantity})</span>
+          </button>
+          <div className={`shopping-cart ${isOpen ? 'open' : 'closed'}`}>
+            <i className="fas fa-times closebtn" onClick={toogleBag}></i>
+            <ShoppingCart toggleBag={toogleBag} />
+          </div>
+        </div>
       </div>
     </nav>
   )
