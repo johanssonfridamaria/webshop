@@ -9,13 +9,10 @@ export const login = (email, password, callback) => {
     }
     await axios.post('/users/login', user)
       .then(res => {
-
         if (res.status === 200) {
           localStorage.setItem('token', res.data.token);
           dispatch(loginSuccess(res.data.token))
           callback();
-        } else {
-          dispatch(fail(true))
         }
       })
       .catch(err => {
@@ -40,7 +37,7 @@ export const fail = error => {
 }
 export const userExists = error => {
   return {
-    type: actiontypes().user.userExists,
+    type: actiontypes().user.exists,
     payload: error
   }
 }
@@ -57,16 +54,14 @@ export const registerUser = (user, callback) => {
     await axios.post('/users/register', user)
       .then(res => {
         console.log(res)
-        if (res.status === 200) {
+        if (res.status === 201) {
           dispatch(login(user.email, user.password, callback))
-        } else if (res.status === 400) {
-          dispatch(userExists(true))
         }
-
       })
       .catch(err => {
         console.log(err)
-        dispatch(fail(true))
+        // dispatch(fail(true))
+        dispatch(userExists(true))
       })
   }
 }
