@@ -61,12 +61,12 @@ const Summary = () => {
         </div>
         {
           loginError && (
-            <p className="error">You have to sign in before sending the order</p>
+            <p className="error"><small>You have to sign in before sending the order</small></p>
           )
         }
         {
           cartError && (
-            <p className="error">Your cart is empty!</p>
+            <p className="error"><small>Your cart is empty!</small></p>
           )
         }
 
