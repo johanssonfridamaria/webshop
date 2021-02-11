@@ -39,58 +39,6 @@ a {
 
 // Navbar
 
-.navbar {
-  @include set-background($light-color);
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  ul {
-    display: flex;
-    list-style-type: none;
-  }
-
-  li {
-    padding: 1rem;
-  }
-
-  a {
-    color: set-text-color($light-color);
-
-    &:hover {
-      color: $secondary-color;
-    }
-  }
-
-  .link {
-    &__active {
-      color: $secondary-color;
-      border-bottom: 0.1rem solid $secondary-color;
-    }
-
-    &__logout {
-      cursor: pointer;
-
-      &:hover {
-        color: $secondary-color;
-      }
-    }
-  }
-
-  .cart {
-    color: $secondary-color;
-    i {
-      cursor: pointer;
-    }
-    .quantity {
-      margin-left: 0.5rem;
-    }
-  }
-}
-
 .shopping-cart {
   height: 100%;
   width: 0;
