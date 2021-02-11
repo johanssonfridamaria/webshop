@@ -16,8 +16,8 @@ const ShopCheckout = () => {
   )
 
   return (
-    <div className="checkout">
-      <div className="checkout__bag">
+    <div className="section__wrap--outer">
+      <div className="section__wrap--inner mb-2">
         <div className="mb-2">
           <h2>Shopping bag</h2>
         </div>
@@ -30,7 +30,7 @@ const ShopCheckout = () => {
           shoppingCart.length < 1 && empty
         }
       </div>
-      <div className="checkout__summary ml-4">
+      <div className="section__wrap--inner">
         <div className="mb-2">
           <h2>Order Summary</h2>
         </div>

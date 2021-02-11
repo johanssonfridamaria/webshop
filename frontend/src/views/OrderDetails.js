@@ -19,8 +19,8 @@ const OrderDetails = () => {
   }, [dispatch, id])
 
   return (
-    <div className="orderdetails">
-      <div className="orderdetails__container mb-2">
+    <div className="section__wrap--outer">
+      <div className="section__wrap--inner mb-2">
         <div className="mb-1">
           <h2>Order Details</h2>
         </div>
@@ -31,7 +31,7 @@ const OrderDetails = () => {
           order && <DetailsOrder order={order} />
         }
       </div>
-      <div className="orderdetails__container ml-3">
+      <div className="section__wrap--inner">
         <div className="mb-1">
           <h2>Your Order</h2>
         </div>
@@ -46,11 +46,11 @@ const OrderDetails = () => {
 
         {order &&
           <div>
-            <div className="orderdetails-item">
+            <div className="section__item">
               <p>Shipping</p>
               <p>0:-</p>
             </div>
-            <div className="orderdetails-item__sum">
+            <div className="section__item__sum">
               <p>Total sum</p>
               <p>{order.sum}:-</p>
             </div>

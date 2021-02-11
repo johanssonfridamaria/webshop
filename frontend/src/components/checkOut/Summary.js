@@ -46,16 +46,16 @@ const Summary = () => {
           : <Link to="/login" className="btn-secondary">Sign in</Link>
       }
 
-      <div className="checkout__summary mt-2">
-        <div className="checkout__summary-item">
+      <div className="flex-column mt-2">
+        <div className="section__item">
           <p>Product cost</p>
           <p>{totalCartAmount}</p>
         </div>
-        <div className="checkout__summary-item">
+        <div className="section__item">
           <p>Shipping</p>
           <p>0</p>
         </div>
-        <div className="checkout__summary-item__sum">
+        <div className="section__item__sum">
           <p>Total sum</p>
           <p>{totalCartAmount}</p>
         </div>
