@@ -1,5 +1,5 @@
 import './scss/App.scss';
-import './components/checkOut/Checkout.scss';
+import './scss/Section.scss';
 import './components/cart/Cart.scss';
 import './components/navigation/Footer.scss';
 import './components/orders/MyOrders.scss'
