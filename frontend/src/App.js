@@ -1,4 +1,11 @@
-import './scss/App.scss'
+import './scss/App.scss';
+import './components/checkOut/Checkout.scss';
+import './components/cart/Cart.scss';
+import './components/navigation/Footer.scss';
+import './components/orders/MyOrders.scss'
+import './components/products/Products.scss'
+import './components/orders/Orders.scss';
+import './components/user/Forms.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/navigation/Navbar';
 import { UserRoute } from './routes/ProtectedRoute';

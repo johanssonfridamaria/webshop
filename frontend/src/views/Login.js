@@ -3,8 +3,6 @@ import LoginForm from '../components/user/LoginForm'
 
 const Login = () => {
 
-
-
   return (
     <div className="form">
       <div>

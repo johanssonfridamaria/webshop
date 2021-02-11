@@ -4,7 +4,6 @@ import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
 import { toggleCart } from '../../store/actions/cartActions';
-import '../cart/Cart.scss';
 
 import './Navbar.scss';
 
