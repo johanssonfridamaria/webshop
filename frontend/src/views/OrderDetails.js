@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchInit, fetchOneOrder } from '../store/actions/orderActions';
 import ProductOrder from '../components/orders/ProductOrder';
 import DetailsOrder from '../components/orders/DetailsOrder';
-
+import '../components/orders/Orders.scss'
 
 const OrderDetails = () => {
 
