@@ -43,7 +43,7 @@ const Navbar = () => {
             <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
             <span >({totalCartQuantity})</span>
           </button>
-          <div className={`shopping-cart ${isOpen ? 'open' : 'closed'}`}>
+          <div className={`shopping-cart ${isOpen ? 'open' : ''}`}>
             <i className="fas fa-times closebtn" onClick={toogleBag}></i>
             <ShoppingCart toggleBag={toogleBag} />
           </div>
