@@ -53,14 +53,12 @@ export const registerUser = (user, callback) => {
   return async dispatch => {
     await axios.post('/users/register', user)
       .then(res => {
-        console.log(res)
         if (res.status === 201) {
           dispatch(login(user.email, user.password, callback))
         }
       })
       .catch(err => {
         console.log(err)
-        // dispatch(fail(true))
         dispatch(userExists(true))
       })
   }
