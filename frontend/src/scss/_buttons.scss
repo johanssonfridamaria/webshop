@@ -17,6 +17,7 @@
   background-color: transparent;
   color: $secondary-color;
   font-size: 1rem;
+  padding-right: 0;
 }
 .btn-primary {
   @extend %btn;
