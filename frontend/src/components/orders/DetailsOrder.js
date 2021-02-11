@@ -7,15 +7,15 @@ const DetailsOrder = ({ order }) => {
 
   return (
     <div>
-      <div className="orderdetails-item">
+      <div className="section__item">
         <p className="mr-2">Order number:</p>
         <p>{order._id}</p>
       </div>
-      <div className="orderdetails-item">
+      <div className="section__item">
         <p>Created:</p>
         <p>{createdDate.toLocaleString()}</p>
       </div>
-      <div className="orderdetails-item">
+      <div className="section__item">
         <p>Updated: </p>
         <p>{updatedDate.toLocaleString()}</p>
       </div>
