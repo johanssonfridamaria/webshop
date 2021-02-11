@@ -18,6 +18,7 @@
   // background-color: lighten($primary-color, 10%);
   background-color: transparent;
   color: $secondary-color;
+  font-size: 1rem;
 }
 .btn-primary {
   @extend %btn;
