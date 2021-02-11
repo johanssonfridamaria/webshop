@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Summary from '../components/checkOut/Summary'
 import CartProduct from '../components/cart/CartProduct';
 import { Link } from 'react-router-dom';
-
+import '../components/checkOut/Checkout.scss';
 
 const ShopCheckout = () => {
 
