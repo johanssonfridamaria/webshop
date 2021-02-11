@@ -27,12 +27,11 @@ const LoginForm = () => {
     if (isValid()) {
       dispatch(login(email.current.value, password.current.value,
         () => {
-          try { history.push(history.location.state.from.pathname) }
+          try { history.push(history.go(-1)) }
           catch { history.push('/') }
         }
       ));
-      email.current.value = '';
-      password.current.value = '';
+      setInputError(false)
     } else {
       return setInputError(true)
     }
@@ -50,11 +49,11 @@ const LoginForm = () => {
         <input type="password" id="password" className="form__input" ref={password} />
       </div>
       {inputError &&
-        (<div className="form__error"><small>Please fill in all fields!</small></div>)
+        (<div className="error"><small>Please fill in all fields!</small></div>)
       }
-      {error &&
+      {error && !inputError &&
         (
-          <div className="form__error"><small>Email or password is incorrect!</small></div>
+          <div className="error"><small>Email or password is incorrect!</small></div>
         )
       }
       <div className="mt-2"><small >Don't have an account? <Link to="/register">Register</Link> </small></div>
