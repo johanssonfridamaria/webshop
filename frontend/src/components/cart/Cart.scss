@@ -1,0 +1,62 @@
+@import '../../scss/config';
+@import '../../scss/utilities';
+
+.shopping-cart {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: $secondary-color;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  .closebtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin-left: 50px;
+    color: #333;
+  }
+
+  &__product {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 5rem;
+    }
+  }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  &__inner-bottom {
+    display: flex;
+    flex-direction: column;
+    border-top: 0.05rem solid #333;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+}
