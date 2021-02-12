@@ -80,10 +80,10 @@ const cartReducer = (state = initState, action) => {
       }
 
     default:
-      // let cart = JSON.parse(localStorage.getItem('cart'))
+      let cart = JSON.parse(localStorage.getItem('cart'))
 
-      // if (cart)
-      //   state = cart
+      if (cart)
+        state = cart
 
       return state
   }
