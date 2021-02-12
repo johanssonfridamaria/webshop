@@ -23,8 +23,6 @@ const Navbar = () => {
   }
 
   const toggleNavbar = () => {
-    console.log('click')
-    console.log(toggleNav)
     setToggleNav(!toggleNav)
   }
 
