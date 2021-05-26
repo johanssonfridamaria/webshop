@@ -26,7 +26,7 @@ const Summary = () => {
 
     if (isLoggedIn) {
       setLoginError(false)
-      if (order.shoppingCart > 0) {
+      if (order.shoppingCart.length > 0) {
         setCartError(false)
         dispatch(checkoutCart(order))
         history.push('/confirmorder')
@@ -69,9 +69,7 @@ const Summary = () => {
             <p className="error"><small>Your cart is empty!</small></p>
           )
         }
-
         <button className="btn-secondary my-2" onClick={sendOrder}>Send order</button>
-
         <small>Note. This is only a fictional shop. The order is only sent to the database</small>
       </div>
     </div>

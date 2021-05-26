@@ -6,6 +6,8 @@ import './components/orders/MyOrders.scss'
 import './components/products/Products.scss'
 import './components/orders/Orders.scss';
 import './components/user/Forms.scss';
+import './components/spinner/Spinner.scss';
+import './views/OrderConfirm.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/navigation/Navbar';
 import { UserRoute } from './routes/ProtectedRoute';
@@ -19,28 +21,30 @@ import ShopCheckout from './views/ShopCheckout';
 import OrderDetails from './views/OrderDetails';
 import OrderConfirm from './views/OrderConfirm';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './store/actions/userActions';
+import Spinner from './components/spinner/Spinner';
 
 function App() {
 
   const loading = useSelector(state => state.userReducer.loading);
-  const isOpen = useSelector(state => state.cartReducer.isOpen);
   const dispatch = useDispatch();
+  const [openCart, setOpenCart] = useState(false)
+
 
   useEffect(() => {
     dispatch(setUser())
   }, [dispatch])
 
   return (
-    <div id="app" className={`${isOpen ? 'increase' : ''}`}>
+    <div id="app" className={`${openCart ? 'increase' : ''}`}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar openCart={openCart} setOpenCart={setOpenCart} />
         <div className="container">
           <div className="my-2 view">
             {
-              loading && <p>loading...</p>
+              loading && <Spinner />
             }
             {
               !loading && (
@@ -52,7 +56,7 @@ function App() {
                   <UserRoute exact path="/orders" component={MyOrders} />
                   <UserRoute exact path="/orders/:id" component={OrderDetails} />
                   <Route exact path="/:id" component={ProductDetails} />
-                  <Route exact path="/" component={Products} />
+                  <Route exact path="/" render={() => <Products openCart={openCart} setOpenCart={setOpenCart} />} />
                 </Switch>
               )
             }

@@ -2,6 +2,7 @@ import OrderTable from '../components/orders/OrderTable';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchInit, fetchUserOrders } from '../store/actions/orderActions';
+import Spinner from '../components/spinner/Spinner';
 
 
 const MyOrders = () => {
@@ -22,12 +23,14 @@ const MyOrders = () => {
         <h2>Your orders</h2>
       </div>
       {
-        loading && <p>Loading...</p>
+        loading && <Spinner />
       }
       {
-        !orders && <p>You don't have any orders to view</p>
+        !loading && !orders && <p>You don't have any orders to view</p>
       }
-      <OrderTable orders={orders} />
+      {!loading && orders &&
+        < OrderTable orders={orders} />
+      }
     </div>
   )
 }

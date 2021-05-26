@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../../store/actions/cartActions';
 import { useDispatch } from 'react-redux';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setOpenCart }) => {
 
   const dispatch = useDispatch();
 
@@ -23,7 +23,10 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="price">
           <p>{product.price} SEK</p>
-          <button className="btn-secondary" onClick={() => { dispatch(addToCart(product)) }}>Add to cart</button>
+          <button className="btn-secondary" onClick={() => {
+            dispatch(addToCart(product));
+            setOpenCart(true);
+          }}>Add to cart</button>
         </div>
       </div>
     </div>

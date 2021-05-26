@@ -3,7 +3,7 @@ import CartProduct from './CartProduct';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-const ShoppingCart = ({ toggleBag }) => {
+const ShoppingCart = ({ toggleBag, setOpenCart }) => {
 
   const history = useHistory();
   const shoppingCart = useSelector(state => state.cartReducer.cart);
@@ -25,7 +25,7 @@ const ShoppingCart = ({ toggleBag }) => {
     <div className="shopping-cart__inner">
       {
         shoppingCart && shoppingCart.map(product => (
-          <CartProduct key={product._id} item={product} />
+          <CartProduct key={product._id} item={product} setOpenCart={setOpenCart} />
         ))
       }
       {

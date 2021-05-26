@@ -4,7 +4,6 @@ const initState = {
   cart: [],
   totalCartQuantity: 0,
   totalCartAmount: 0,
-  isOpen: false,
   error: false
 }
 
@@ -33,7 +32,6 @@ const cartReducer = (state = initState, action) => {
 
       localStorage.setItem('cart', JSON.stringify(newState))
 
-      newState.isOpen = true;
       return newState
 
     case actiontypes().cart.remove:
@@ -66,10 +64,6 @@ const cartReducer = (state = initState, action) => {
 
       localStorage.setItem('cart', JSON.stringify(secondState))
       return secondState;
-
-    case actiontypes().cart.toggleCart:
-      state.isOpen = !state.isOpen
-      return state;
 
     case actiontypes().cart.clear:
       return {

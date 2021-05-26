@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchInit, fetchOneProduct } from '../store/actions/productsActions';
 import { addToCart } from '../store/actions/cartActions';
+import Spinner from '../components/spinner/Spinner';
 
 const ProductDetails = () => {
 
@@ -19,7 +20,7 @@ const ProductDetails = () => {
   return (
     <div>
       {
-        loading && !product && <p>Loading...</p>
+        loading && !product && <Spinner />
       }
       {
         product && <div className="product mb-5">

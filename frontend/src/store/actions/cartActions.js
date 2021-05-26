@@ -51,9 +51,3 @@ export const checkoutCart = (order) => {
     } else return
   }
 }
-
-export const toggleCart = () => {
-  return {
-    type: actiontypes().cart.toggleCart,
-  }
-}

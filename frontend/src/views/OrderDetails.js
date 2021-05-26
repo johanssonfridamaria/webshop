@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchInit, fetchOneOrder } from '../store/actions/orderActions';
 import ProductOrder from '../components/orders/ProductOrder';
 import DetailsOrder from '../components/orders/DetailsOrder';
+import Spinner from '../components/spinner/Spinner';
 
 
 const OrderDetails = () => {
@@ -25,7 +26,7 @@ const OrderDetails = () => {
           <h2>Order Details</h2>
         </div>
         {
-          loading && !order && <p>Loading...</p>
+          loading && !order && <Spinner />
         }
         {
           order && <DetailsOrder order={order} />
@@ -36,7 +37,7 @@ const OrderDetails = () => {
           <h2>Your Order</h2>
         </div>
         {
-          loading && !order && <p>Loading...</p>
+          loading && !order && <Spinner />
         }
         {
           order && order.cart.map(product => (

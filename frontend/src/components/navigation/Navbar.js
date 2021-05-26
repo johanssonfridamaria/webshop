@@ -3,23 +3,19 @@ import { NavLink, Link } from 'react-router-dom';
 import ShoppingCart from '../cart/ShoppingCart';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../store/actions/userActions';
-import { toggleCart } from '../../store/actions/cartActions';
-
 import './Navbar.scss';
 
-
-const Navbar = () => {
+const Navbar = ({ openCart, setOpenCart }) => {
 
   let totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity);
   let isAuth = useSelector(state => state.userReducer.token);
-  let isOpen = useSelector(state => state.cartReducer.isOpen);
 
   const [toggleNav, setToggleNav] = useState(false)
 
   const dispatch = useDispatch();
 
   const toogleBag = () => {
-    dispatch(toggleCart())
+    setOpenCart(!openCart)
   }
 
   const toggleNavbar = () => {
@@ -48,9 +44,9 @@ const Navbar = () => {
             <i className="fas fa-shopping-bag" onClick={toogleBag}></i>
             <span >({totalCartQuantity})</span>
           </button>
-          <div className={`shopping-cart ${isOpen ? 'open' : ''}`}>
+          <div className={`shopping-cart ${openCart ? 'open' : ''}`}>
             <i className="fas fa-times closebtn" onClick={toogleBag}></i>
-            <ShoppingCart toggleBag={toogleBag} />
+            <ShoppingCart toggleBag={toogleBag} setOpenCart={setOpenCart} />
           </div>
           <button className="btn-cart toggle-btn" onClick={toggleNavbar}><i className="fas fa-bars"></i></button>
         </div>
